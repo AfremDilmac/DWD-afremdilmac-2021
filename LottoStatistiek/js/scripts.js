@@ -4,18 +4,21 @@ const VIJFTIG_POGINGEN = 50;
 
 //6 willekeurige cijfers
 let arr1 = []
-arr1[0] = Math.floor(Math.random() * CIJFERS);
+
 arr1[1] = Math.floor(Math.random() * CIJFERS);
 arr1[2] = Math.floor(Math.random() * CIJFERS);
 arr1[3] = Math.floor(Math.random() * CIJFERS);
 arr1[4] = Math.floor(Math.random() * CIJFERS);
 arr1[5] = Math.floor(Math.random() * CIJFERS);
 
+
+for (let index = 0; index < ZES_WILLEKEURIG; index++) {
+    arr1.push (Math.floor(Math.random() * CIJFERS));
+    
+}
+console.log(arr1);
 //trekking
-console.log("getrokken getallen: " + arr1.toString());
-
-
-
+// console.log("getrokken getallen: " + arr1.toString());
 
 let arr2 = []
 arr2[0] = Math.floor(Math.random() * CIJFERS);
