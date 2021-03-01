@@ -19,11 +19,11 @@ frmLogin
 
 frmLogin.addEventListener('submit', function (e){
     e.preventDefault();
-    let numErrors = 0;
+    
    
     if (inpEmail.value == '') {
         msgEmail.innerHTML = 'mag niet leeg zijn';
-        numErrors++;
+       
     }
     else if (inpEmail.value != '') {
         msgEmail.innerHTML = '';
@@ -31,14 +31,14 @@ frmLogin.addEventListener('submit', function (e){
     }
     if (inpName.value == '') {
         msgName.innerHTML = 'mag niet leeg zijn';
-        numErrors++;
+        
     }
     else if (inpName.value != '') {
         msgName.innerHTML = '';
     }
     if (inpBirth.value == '') {
         msgBirth.innerHTML = 'geboortedatum mag niet leeg zijn';
-        numErrors++;
+     
     }
     else if (inpBirth.value != '') {
         msgBirth.innerHTML = '';
@@ -55,5 +55,15 @@ frmLogin.addEventListener('submit', function (e){
     else if (inpMan.checked == true || inpVrouw.checked == true) {
         msgGender.innerHTML = '';
     }
+    
+    for (let i = 0; i < inpInterests.length; i++) {
+        inpInterests.forEach(interest => {
+            if (interest.checked != true) {
+                msgInterests.innerHTML = 'selecteer iets';
+            }
+        });
+    }
+
+
     
 })
