@@ -1,0 +1,40 @@
+body{
+    background-color: rgb(39, 69, 95);
+}
+h1{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
+button{
+    padding: 50px;
+    margin-bottom: 5px;
+    background-color: gray;
+    font-size: 30px;
+    max-width: 50px;
+    max-height: 50px;
+
+}
+button:hover{
+    background-color: lightgray;
+    transition: 0.2s;
+}
+div{
+    text-align: center;
+}
+
+.wrapper{
+    margin-top: 14rem;
+}
+#lblmessage{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+img{
+    margin: 0 0;
+    width: 400px;
+}

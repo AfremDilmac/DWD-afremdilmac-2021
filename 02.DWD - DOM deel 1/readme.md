@@ -6,4 +6,4 @@
 * Bieden = html css klaar. javascript niet klaar.
 * Chatbox = niet klaar.
 * FotoGallerijKnoppen = niet klaar.
-* OXO = niet klaar.
+* OXO = 50% klaar.
