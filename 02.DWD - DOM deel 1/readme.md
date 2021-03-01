@@ -4,6 +4,6 @@
 * FormChecking = klaar.
 * Pizza = klaar.
 * Bieden = html css klaar. javascript niet klaar.
-* Chatbox = niet klaar.
+* Chatbox = Klaar.
 * FotoGallerijKnoppen = niet klaar.
 * OXO = 50% klaar.

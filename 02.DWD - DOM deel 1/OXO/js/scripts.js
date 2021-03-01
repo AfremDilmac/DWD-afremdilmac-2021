@@ -27,7 +27,7 @@ btn1.addEventListener('click', function(){
     }
 
     if (btn1.innerHTML == 'O' && btn2.innerHTML == 'O') {
-        if (btn3.innerHTML == 'O') {
+        if (btn3.innerHTML == 'X') {
             img.src = "/img/player1win.jpg"
         }
     };

@@ -3,5 +3,33 @@ body{
 }
 
 .wrapper{
-    background-color: white;
+    text-align: center;
+ 
 }
+
+.test{
+    background-color: white;
+
+}
+h1{
+    text-align: center;
+}
+.test{
+    
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    box-shadow: rgb(0 0 0 / 15%) 1.95px 1.95px 2.6px;
+    border-radius: 80px;
+    padding-bottom: 2rem;
+    max-width: 60rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+
+}
+
+.layout{
+    justify-content: center;
+}
+
+
