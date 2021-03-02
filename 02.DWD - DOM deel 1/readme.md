@@ -5,5 +5,5 @@
 * Pizza = klaar.
 * Bieden = html css klaar. javascript niet klaar.
 * Chatbox = Klaar.
-* FotoGallerijKnoppen = niet klaar.
-* OXO = 50% klaar.
+* FotoGallerijKnoppen = 50%.
+* OXO = 75% klaar.
