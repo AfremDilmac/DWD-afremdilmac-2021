@@ -8,17 +8,17 @@ const image = document.querySelector('#image')
 button1.addEventListener('click', function(){
 
     lbl.innerHTML = `Je keuze: hot & spicy`;
-    image.src = "/img/hawai.png"
+    image.src = "img/hawai.png"
 });
 
 button2.addEventListener('click', function(){
 
     lbl.innerHTML = `Je keuze: 4 seizoenen`;
-    image.src = "/img/seizoenen.png"
+    image.src = "img/seizoenen.png"
 });
 
 button3.addEventListener('click', function(){
 
     lbl.innerHTML = `Je keuze: hawai`;
-    image.src = "/img/spicy.png"
+    image.src = "img/spicy.png"
 });
