@@ -6,7 +6,7 @@ const btn = document.querySelector('#btnsend');
 
 btn.addEventListener('click', function(){
 
-bericht.innerHTML += `${inpName.value.bold()} says: \n ${txt.value}`;
+bericht.innerHTML += `<p>${inpName.value.bold()} says:  </br> ${txt.value}</p>`;
 inpName.value = '';
 txt.value = '';
 });
