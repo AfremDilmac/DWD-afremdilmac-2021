@@ -9,7 +9,7 @@ const btn8 = document.querySelector('#btn8');
 const btn9 = document.querySelector('#btn9');
 const message = document.querySelector('#lblmessage');
 const img = document.querySelector('#imguitvoer');
-let turn = 0;
+let turn = 1;
 
 
 
@@ -27,7 +27,7 @@ btn1.addEventListener('click', function(){
     }
 
     if (btn1.innerHTML == 'O' && btn2.innerHTML == 'O') {
-        if (btn3.innerHTML == 'X') {
+        if (btn3.innerHTML == 'O') {
             img.src = "/img/player1win.jpg"
         }
     };

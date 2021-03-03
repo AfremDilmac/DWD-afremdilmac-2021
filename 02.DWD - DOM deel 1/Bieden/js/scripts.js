@@ -11,12 +11,19 @@ let momentnaam = naam;
 btn.addEventListener('click', function(){
 
     if (bod > 0 ) {
-        lbl = `Gefeleciteerd! je hebt momenteel het hoogste bod`;
+        lbl.innerHTML = `Gefeleciteerd! je hebt momenteel het hoogste bod`;
         
     } else {
         text = `jammer! ${momentnaam} heeft een hoger bod`;
-        lbl = text;
+        lbl.innerHTML = text;
     }
 
 })
+
+btn.addEventListener('click', function(){
+
+
+
+
+});
 
