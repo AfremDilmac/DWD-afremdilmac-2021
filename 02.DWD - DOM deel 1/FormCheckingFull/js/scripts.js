@@ -15,6 +15,7 @@ const msgProfile = frmLogin.querySelector('#msgprofile');
 const msgGender = frmLogin.querySelector('#msggender');
 const msgInterests = frmLogin.querySelector('#msginterests');
 
+
 frmLogin
 .setAttribute
 ('novalidate', 'novalidate');

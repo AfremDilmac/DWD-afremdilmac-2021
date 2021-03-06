@@ -2,5 +2,7 @@
 ## Verbetering
 
 * Bieden Voltooid.
-* OXO bijna voltooid.
-* FormCheckingull = interests verbeterd.
+* OXO voltooid.
+* FormCheckingull = interests verbeterd. (alles werkt)
+
+Alles werkt er blijft nog de FotoGallerijKnoppen opdracht dat ik niet heb kunnen maken.
