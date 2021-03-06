@@ -1,9 +1,6 @@
 # DWD-afremdilmac-2021
-## Voorbereiding
+## Verbetering
 
-* FormChecking = klaar.
-* Pizza = klaar.
-* Bieden = html css klaar. javascript niet klaar.
-* Chatbox = Klaar.
-* FotoGallerijKnoppen = 50%.
-* OXO = 75% klaar.
+* Bieden Voltooid.
+* OXO bijna voltooid.
+* FormCheckingull = interests verbeterd.

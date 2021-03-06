@@ -1,6 +1,9 @@
 body{
     background-color: rgb(39, 69, 95);
+    max-width: 600px;
+    margin: 0 auto;
 }
+
 h1{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
@@ -8,26 +11,29 @@ h1{
     color: white;
     font-size: 60px;
 }
-button{
-    padding: 50px;
-    margin-bottom: 5px;
-    background-color: gray;
-    font-size: 30px;
-    max-width: 50px;
-    max-height: 50px;
 
-}
-button:hover{
+#wrapper button:hover{
     background-color: lightgray;
     transition: 0.2s;
 }
+
 div{
     text-align: center;
 }
 
-.wrapper{
+#wrapper{
     margin-top: 14rem;
+    width: 300px;
+  
 }
+
+#wrapper button{
+    height: 95px;
+    width: 95px;
+    margin-bottom: 5px;
+    font-size: 30px
+}
+
 #lblmessage{
     color: white;
     font-size: 16px;
@@ -38,3 +44,4 @@ img{
     margin: 0 0;
     width: 400px;
 }
+

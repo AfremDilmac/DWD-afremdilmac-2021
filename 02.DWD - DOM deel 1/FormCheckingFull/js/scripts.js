@@ -5,13 +5,15 @@ const inpBirth = frmLogin.querySelector('#birth');
 const inpProfile = frmLogin.querySelector('#profile');
 const inpMan = frmLogin.querySelector('#rbnman');
 const inpVrouw = frmLogin.querySelector('#rbnvrouw');
-const inpInterests = frmLogin.querySelectorAll('#chbsInterests')
+const inpProgrammeren = frmLogin.querySelector('#cbxprogrammeren');
+const inpNetwerken = frmLogin.querySelector('#cbxnetwerken');
+const inpBusiness = frmLogin.querySelector('#cbxbusiness');
 const msgName = frmLogin.querySelector('#msgname');
 const msgEmail = frmLogin.querySelector('#msgemail');
 const msgBirth = frmLogin.querySelector('#msgbirth');
 const msgProfile = frmLogin.querySelector('#msgprofile');
 const msgGender = frmLogin.querySelector('#msggender');
-const msgInterests = frmLogin.querySelector('#msginterests')
+const msgInterests = frmLogin.querySelector('#msginterests');
 
 frmLogin
 .setAttribute
@@ -56,12 +58,16 @@ frmLogin.addEventListener('submit', function (e){
         msgGender.innerHTML = '';
     }
     
-    for (let i = 0; i < inpInterests.length; i++) {
-        inpInterests.forEach(interest => {
-            if (interest.checked != true) {
-                msgInterests.innerHTML = 'selecteer iets';
-            }
-        });
+    if (inpProgrammeren.checked == false && inpBusiness.checked == false) {
+        if (inpNetwerken.checked == false) {
+            msgInterests.innerHTML = 'Selecteer een interesse';
+        }    
+    }
+    else if (inpProgrammeren.checked == true || inpBusiness.checked == true) {
+        msgInterests.innerHTML = '';
+        }
+    if (inpNetwerken.checked == true) {
+        msgInterests.innerHTML = '';
     }
 
 
