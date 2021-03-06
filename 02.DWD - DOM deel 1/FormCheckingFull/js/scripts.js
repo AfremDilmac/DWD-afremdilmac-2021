@@ -17,60 +17,53 @@ const msgInterests = frmLogin.querySelector('#msginterests');
 
 
 frmLogin
-.setAttribute
-('novalidate', 'novalidate');
+    .setAttribute('novalidate', 'novalidate');
 
-frmLogin.addEventListener('submit', function (e){
+frmLogin.addEventListener('submit', function (e) {
     e.preventDefault();
-    
-   
+
+
     if (inpEmail.value == '') {
         msgEmail.innerHTML = 'mag niet leeg zijn';
-       
-    }
-    else if (inpEmail.value != '') {
+
+    } else if (inpEmail.value != '') {
         msgEmail.innerHTML = '';
 
     }
     if (inpName.value == '') {
         msgName.innerHTML = 'mag niet leeg zijn';
-        
-    }
-    else if (inpName.value != '') {
+
+    } else if (inpName.value != '') {
         msgName.innerHTML = '';
     }
     if (inpBirth.value == '') {
         msgBirth.innerHTML = 'geboortedatum mag niet leeg zijn';
-     
-    }
-    else if (inpBirth.value != '') {
+
+    } else if (inpBirth.value != '') {
         msgBirth.innerHTML = '';
     }
     if (inpProfile.selectedIndex == 0) {
         msgProfile.innerHTML = 'Selecteer een profiel';
-    }
-    else if (inpProfile.selectedIndex != 0) {
+    } else if (inpProfile.selectedIndex != 0) {
         msgProfile.innerHTML = '';
     }
     if (inpMan.checked == false && inpVrouw.checked == false) {
         msgGender.innerHTML = 'Selecteer een geslacht';
-    }
-    else if (inpMan.checked == true || inpVrouw.checked == true) {
+    } else if (inpMan.checked == true || inpVrouw.checked == true) {
         msgGender.innerHTML = '';
     }
-    
+
     if (inpProgrammeren.checked == false && inpBusiness.checked == false) {
         if (inpNetwerken.checked == false) {
             msgInterests.innerHTML = 'Selecteer een interesse';
-        }    
-    }
-    else if (inpProgrammeren.checked == true || inpBusiness.checked == true) {
-        msgInterests.innerHTML = '';
         }
+    } else if (inpProgrammeren.checked == true || inpBusiness.checked == true) {
+        msgInterests.innerHTML = '';
+    }
     if (inpNetwerken.checked == true) {
         msgInterests.innerHTML = '';
     }
 
 
-    
+
 })

@@ -4,9 +4,9 @@ const bericht = document.querySelector('#test');
 const btn = document.querySelector('#btnsend');
 
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click', function () {
 
-bericht.innerHTML += `<p>${inpName.value.bold()} says:  </br> ${txt.value}</p>`;
-inpName.value = '';
-txt.value = '';
+    bericht.innerHTML += `<p>${inpName.value.bold()} says:  </br> ${txt.value}</p>`;
+    inpName.value = '';
+    txt.value = '';
 });

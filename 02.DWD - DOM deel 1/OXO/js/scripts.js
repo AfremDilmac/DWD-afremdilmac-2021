@@ -18,7 +18,7 @@ buttons.forEach(btn => {
             btn.disabled = true;
             turn = 1;
         }
-        
+
         //Player 1 win
         if (btn1.innerHTML == 'X' && btn2.innerHTML == 'X') {
             if (btn3.innerHTML == 'X') {
@@ -100,7 +100,7 @@ buttons.forEach(btn => {
                 img.src = '/OXO/img/player1wins.png';
             }
         }
-        
+
         //Player 2 Win
         if (btn1.innerHTML == 'O' && btn2.innerHTML == 'O') {
             if (btn3.innerHTML == 'O') {
@@ -175,16 +175,15 @@ buttons.forEach(btn => {
         if (btn1.innerHTML == 'O' && btn5.innerHTML == 'O') {
             if (btn9.innerHTML == 'O') {
                 img.src = '/OXO/img/player2wins.png';
-               
+
             }
         }
         if (btn3.innerHTML == 'O' && btn5.innerHTML == 'O') {
             if (btn7.innerHTML == 'O') {
                 img.src = '/OXO/img/player2wins.png';
-
+              
             }
         }
 
     });
 });
-
