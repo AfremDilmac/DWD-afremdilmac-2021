@@ -245,27 +245,20 @@ buttons.forEach(btn => {
                 img.src = '/OXO/img/player2wins.png';
                 title.innerHTML = 'Player 2 win!';
                 document.getElementById("btnrestart").style.visibility = "visible";
-              
+
             }
         }
 
     });
 });
 
-restart.addEventListener('click', function(){
+restart.addEventListener('click', function () {
+    buttons.forEach(btn => {
+        btn.innerHTML = '-';
+        btn.disabled = false;
+        img.src = '';
+        title.innerHTML = 'OXO';
+        document.getElementById("btnrestart").style.visibility = "hidden";
 
-buttons.forEach(btn => {
-    btn.innerHTML = '-';
-    btn.disabled = false;
-    img.src = '';
-    title.innerHTML = 'OXO';
-    document.getElementById("btnrestart").style.visibility = "hidden";
-});
-    
-
-
-
-
-
-
+    });
 });
