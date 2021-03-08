@@ -2,10 +2,11 @@ body{
     background-color: rgb(39, 69, 95);
     max-width: 600px;
     margin: 0 auto;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
     font-weight: 100;
     text-align: center;
     color: white;
@@ -17,7 +18,17 @@ h1{
     transition: 0.2s;
 }
 
-
+#btnrestart{
+    padding-top: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 20px;
+    font-size:20px;
+    margin-left: 4rem;
+    visibility: hidden;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 div{
     text-align: center;
@@ -45,5 +56,6 @@ div{
 img{
     margin: 0 0;
     width: 400px;
+    margin-bottom: 1rem;
 }
 
