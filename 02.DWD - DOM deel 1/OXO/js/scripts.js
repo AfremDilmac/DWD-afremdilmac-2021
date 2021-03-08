@@ -3,6 +3,7 @@ const img = document.querySelector('#imguitvoer');
 const message = document.querySelector('#imguitvoer');
 const title = document.querySelector('#title');
 const restart = document.querySelector('#btnrestart');
+const current = document.querySelector('#current');
 
 let turn = 1;
 
@@ -12,10 +13,12 @@ buttons.forEach(btn => {
         //Beurt bepalen
         if (turn == 1) {
             btn.innerHTML = 'X';
+            current.innerHTML =  'Current player: Player 2'
             turn = 0;
             btn.disabled = true;
         } else {
             btn.innerHTML = 'O';
+            current.innerHTML = 'Current player: Player 1'
             btn.disabled = true;
             turn = 1;
         }
@@ -248,10 +251,11 @@ buttons.forEach(btn => {
 
             }
         }
-
+        
     });
 });
 
+// Restart button
 restart.addEventListener('click', function () {
     buttons.forEach(btn => {
         btn.innerHTML = '-';
