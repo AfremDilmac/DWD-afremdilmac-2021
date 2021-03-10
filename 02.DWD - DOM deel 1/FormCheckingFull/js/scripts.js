@@ -60,6 +60,7 @@ frmLogin.addEventListener('submit', function (e) {
     } else if (inpProgrammeren.checked == true || inpBusiness.checked == true) {
         msgInterests.innerHTML = '';
     }
+    
     if (inpNetwerken.checked == true) {
         msgInterests.innerHTML = '';
     }

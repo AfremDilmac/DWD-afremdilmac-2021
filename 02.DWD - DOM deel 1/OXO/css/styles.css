@@ -1,15 +1,14 @@
 body{
-    background-color: rgb(39, 69, 95);
+    background-color: #16161E;
     max-width: 600px;
     margin: 0 auto;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h1{
-
     font-weight: 100;
     text-align: center;
-    color: white;
+    color: #72B7E8;
     font-size: 60px;
     margin-bottom: 0px;
 }
@@ -17,11 +16,12 @@ h1{
 h3{
     color: white;
 }
-h4{color:rgb(189, 189, 189);
+h4{
+    color:rgb(189, 189, 189);
 }
 
-#wrapper button:hover{
-    background-color: lightgray;
+#wrapper button:hover, #btnrestart:hover{
+    background-color: #115fc0;
     transition: 0.2s;
 }
 
@@ -42,9 +42,12 @@ div{
 }
 
 #wrapper{
-    margin-top: 14rem;
     width: 300px;
+}
 
+button{
+    background-color: #1B88E5;
+    color: #CFF1FC;
 }
 
 #wrapper button{
@@ -52,6 +55,7 @@ div{
     width: 95px;
     margin-bottom: 5px;
     font-size: 30px
+    
 }
 
 #lblmessage{
@@ -64,5 +68,6 @@ img{
     margin: 0 0;
     width: 400px;
     margin-bottom: 1rem;
+  
 }
 
