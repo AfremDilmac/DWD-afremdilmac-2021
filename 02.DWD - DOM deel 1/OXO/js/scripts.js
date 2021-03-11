@@ -7,8 +7,8 @@ const current = document.querySelector('#current');
 
 let turn = 1;
 let sndWin = new Audio();
+sndWin.volume = 0.3;
 sndWin.src = "snd/win.mp3";
-
 
 
 buttons.forEach(btn => {
@@ -17,15 +17,15 @@ buttons.forEach(btn => {
         //Beurt bepalen
         if (turn == 1) {
             btn.innerHTML = 'X';
-            current.innerHTML =  'Current player: Player 2'
+            current.innerHTML = 'Current player: Player 2'
             turn = 0;
             btn.disabled = true;
-            btn.style.backgroundColor = 'gray';
+            btn.style.backgroundColor = 'purple';
         } else {
             btn.innerHTML = 'O';
             current.innerHTML = 'Current player: Player 1'
             btn.disabled = true;
-            btn.style.backgroundColor = 'gray';
+            btn.style.backgroundColor = 'purple';
             turn = 1;
         }
 
@@ -157,7 +157,7 @@ buttons.forEach(btn => {
                 sndWin.play();
             }
         }
- 
+
         //Player 2 Win
         if (btn1.innerHTML == 'O' && btn2.innerHTML == 'O') {
             if (btn3.innerHTML == 'O') {
@@ -289,8 +289,6 @@ buttons.forEach(btn => {
 
             }
         }
-           
-
     });
 });
 
