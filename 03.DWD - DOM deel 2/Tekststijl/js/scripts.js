@@ -9,7 +9,7 @@ const btnStyle2 = document.querySelector('#btnstyle2')
 const btnStyle3 = document.querySelector('#btnstyle3')
 
 btnStyle1.addEventListener('click', function (){
-    txtArea.style.textShadow = '5px 5px'
+    txtArea.style.textShadow = '3px 3px'
     txtArea.style.backgroundImage = '';
     txtArea.style.transform = '';
     btnStyle1.disabled = true;
