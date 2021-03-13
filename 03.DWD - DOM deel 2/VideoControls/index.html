@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.Css">
+    <title>Document</title>
+</head>
+<body>
+    <video id="myvideo" width="320" height="240" controls>
+        <source src="video/donald.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    <div id="slider">
+        <p>volume: </p>
+      <input id="sldsound" type="range" min="1" max="100" value="50" class="slider" id="myRange">
+      <p id="lblsound">50</p>
+    </div>
+    <div>
+    <button id="btnstop">stop</button>
+    <button id="btnrewind">rewind</button>
+    </div>
+    <input type="checkbox" id="inpfunk" name="funk" value="funk">
+    <label for="funk">funky version</label>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

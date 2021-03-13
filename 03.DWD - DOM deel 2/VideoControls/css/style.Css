@@ -1,0 +1,19 @@
+#myvideo{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+#slider{
+    margin-left: 1rem;
+    display: flex;
+}
+button{
+    font-size: 14px;
+    padding: 10px 20px;
+}
+#btnstop{
+    margin-left: 1rem;
+}
+#inpfunk{
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
