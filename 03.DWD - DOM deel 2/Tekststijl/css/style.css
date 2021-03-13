@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(216, 192, 126);
+}
+
+.slidecontainer {
+    display: flex;
+}
+
+button {
+    margin-top: 20px;
+    size: 20px;
+    padding: 10px 16px;
+
+}
+p{
+    margin: 5px;
+}
+
+#txtbericht{
+    margin-top: 20px;
+    width: 400px;
+    height:150px;
+    
+}
+
+#cbx{
+    display: block;
+
+
+
+}

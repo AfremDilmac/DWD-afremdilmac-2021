@@ -7,7 +7,7 @@ const current = document.querySelector('#current');
 
 let turn = 1;
 let sndWin = new Audio();
-sndWin.volume = 0.3;
+sndWin.volume = 0.5;
 sndWin.src = "snd/win.mp3";
 
 
