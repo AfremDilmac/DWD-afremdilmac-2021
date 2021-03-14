@@ -1,31 +1,41 @@
 const figBig = document.querySelector('#figBig');
-const thumbLinks = document.querySelectorAll('.thumbs a');
+const thumbs = document.querySelectorAll('.thumbs div');
 const btnNext = document.querySelector('#btnNext');
-const items = document.querySelectorAll('#thumbs li')
+const btnPrevious = document.querySelector('#btnPrev');
 
-thumbLinks.forEach(lnk => {
-  lnk.addEventListener('click', function () {
-    document.querySelector('.current').classList.remove('current');
-    lnk.classList.add('current');
-    lnk.classList.add('visited');
-    figBig.querySelector('img').src = lnk.getAttribute('data-photo');
+let currentImg = 0;
 
-  });
-
+thumbs.forEach(thn => {
+   thn.addEventListener('click', function () {
+      // verwijder current class van vorige thumb
+      document.querySelector('.current').classList.remove('current');
+      // voeg current en visited class toe aan huidige thumb
+      thn.classList.add('current');
+      thn.classList.add('visited');
+      // pas afbeelding en beschrijving aan
+      figBig.querySelector('img').src = thn.getAttribute('data-photo');
+      figBig.querySelector('figcaption').innerHTML = thn.querySelector('img').alt;
+     
+   });
 });
 
 btnNext.addEventListener('click', function () {
-  document.querySelector('.current').classList.remove('current');
-  lnk.classList.add('current');
-  lnk.classList.add('visited');
-  figBig.querySelector('img').src = lnk.getAttribute('data-photo');
-
-
+   currentImg += 1;
+   if (currentImg == 5){
+      currentImg = 0;
+   }
+   afbeeldingen(currentImg);
 });
 
+btnPrevious.addEventListener('click', function (){
+   currentImg += 1;
+   if (currentImg == 5){
+      currentImg = 0;
+   }
+   afbeeldingen(currentImg);
+});
 
-function handleLinkClicks(e) {
-  e.preventDefault();
-  figBig.querySelector('img').src = this.href;
-  figBig.querySelector('figcaption').innerHTML = this.querySelector('img').alt;
+function afbeeldingen(currImg) {
+   figBig.querySelector('img').src = thumbs[currImg].getAttribute('data-photo');
+   figBig.querySelector('figcaption').innerHTML = thumbs[currImg].querySelector('img').alt;
 }
