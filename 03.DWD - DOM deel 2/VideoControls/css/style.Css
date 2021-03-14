@@ -10,8 +10,13 @@ button{
     font-size: 14px;
     padding: 10px 20px;
 }
-#btnstop{
+#btnplay{
     margin-left: 1rem;
+}
+#btnrewind{
+    margin-top: 0.3rem;
+    margin-left: 1rem;
+    padding: 10px 49px;
 }
 #inpfunk{
     margin-top: 1rem;
