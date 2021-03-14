@@ -22,6 +22,9 @@ btnRewind.addEventListener('click', function(){
 
 cbxFunk.addEventListener('click', function(){
 
-   video.classList.add('red-bg');
-    
+  if (cbxFunk.checked == true) {
+    video.classList.add('video');
+  }     
+  else if (cbxFunk.checked == false)
+  video.classList.remove('video');
 });
