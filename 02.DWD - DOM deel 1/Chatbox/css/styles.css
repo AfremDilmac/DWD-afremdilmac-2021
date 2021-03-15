@@ -32,4 +32,13 @@ h1{
     justify-content: center;
 }
 
-
+#txtbericht, #naam{
+    margin: 0 10px;
+    line-height: 1.6;
+    width: 200px;
+    margin-left: 10px;
+}
+#naam{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
