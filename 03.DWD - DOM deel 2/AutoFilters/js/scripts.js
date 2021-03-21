@@ -18,47 +18,82 @@ sldSize.addEventListener('click', function () {
 
 
 btnBlur.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('drop');
     image.classList.remove('hue');
     image.classList.remove('grayscale');
     image.classList.remove('contrast');
+    btnBlur.classList.add('current');
     image.classList.add('blur');
 
 });
 
 btnConstrast.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('blur');
     image.classList.remove('drop');
     image.classList.remove('hue');
     image.classList.remove('grayscale');
+    btnConstrast.classList.add('current');
     image.classList.add('contrast');
 });
 
 btnGrayscale.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('blur');
     image.classList.remove('drop');
     image.classList.remove('hue');
     image.classList.remove('contrast');
+    btnGrayscale.classList.add('current');
     image.classList.add('grayscale');
 });
 
 btnHue.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('blur');
     image.classList.remove('drop');
     image.classList.remove('grayscale');
     image.classList.remove('contrast');
+    btnHue.classList.add('current');
     image.classList.add('hue');
 });
 
 btnDrop.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('blur');
     image.classList.remove('hue');
     image.classList.remove('grayscale');
     image.classList.remove('contrast');
+    btnDrop.classList.add('current');
     image.classList.add('drop');
 });
 
 btnClear.addEventListener('click', function(){
+    btnBlur.classList.remove('current');
+    btnConstrast.classList.remove('current');
+    btnGrayscale.classList.remove('current');
+    btnDrop.classList.remove('current');
+    btnHue.classList.remove('current');
     image.classList.remove('blur');
     image.classList.remove('drop');
     image.classList.remove('grayscale');
