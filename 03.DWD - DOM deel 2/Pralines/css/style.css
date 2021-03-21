@@ -1,0 +1,13 @@
+.current{
+    filter: brightness(95%);
+}
+img{
+    width: 100px;
+    float: left;
+    width: 8%;
+    padding: 5px;
+}
+
+dt{
+    font-weight: bold;
+}
