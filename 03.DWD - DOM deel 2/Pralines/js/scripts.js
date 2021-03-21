@@ -10,8 +10,8 @@ images.forEach(img => {
     calorieen.innerHTML = img.getAttribute('data-calorie')
     beschrijving.innerHTML = img.getAttribute('data-beschrijving')
     document.querySelector('.current').classList.remove('current');
-    img.classList.add('current')
-    img.classList.add('visited');
+    img.classList.add('current');
+   
     });
 });
     
