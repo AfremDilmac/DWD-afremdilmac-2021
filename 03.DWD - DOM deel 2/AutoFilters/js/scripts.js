@@ -7,6 +7,7 @@ const btnGrayscale = document.querySelector('#btnG');
 const btnHue = document.querySelector('#btnH');
 const btnDrop = document.querySelector('#btnD');
 const btnClear = document.querySelector('#btnClear');
+const buttons = document.querySelectorAll('#buttons button'); 
 
 document.title = 'Filter oefening';
 
@@ -16,87 +17,38 @@ sldSize.addEventListener('click', function () {
     img.style.opacity = opacity;
 });
 
+buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelector('.current').classList.remove('current');
+        btn.classList.add('current');
+    });
+});
 
 btnBlur.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('drop');
-    image.classList.remove('hue');
-    image.classList.remove('grayscale');
-    image.classList.remove('contrast');
-    btnBlur.classList.add('current');
+    image.classList.remove('drop', 'hue', 'grayscale', 'contrast',);
     image.classList.add('blur');
-
 });
 
 btnConstrast.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('blur');
-    image.classList.remove('drop');
-    image.classList.remove('hue');
-    image.classList.remove('grayscale');
-    btnConstrast.classList.add('current');
+    image.classList.remove('grayscale', 'blur', 'drop', 'hue');
     image.classList.add('contrast');
 });
 
 btnGrayscale.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('blur');
-    image.classList.remove('drop');
-    image.classList.remove('hue');
-    image.classList.remove('contrast');
-    btnGrayscale.classList.add('current');
+    image.classList.remove('blur', 'drop', 'hue', 'contrast');
     image.classList.add('grayscale');
 });
 
 btnHue.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('blur');
-    image.classList.remove('drop');
-    image.classList.remove('grayscale');
-    image.classList.remove('contrast');
-    btnHue.classList.add('current');
+    image.classList.remove('contrast', 'blur', 'drop', 'grayscale');
     image.classList.add('hue');
 });
 
 btnDrop.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('blur');
-    image.classList.remove('hue');
-    image.classList.remove('grayscale');
-    image.classList.remove('contrast');
-    btnDrop.classList.add('current');
+    image.classList.remove('contrast', 'blur', 'hue', 'grayscale');
     image.classList.add('drop');
 });
 
 btnClear.addEventListener('click', function(){
-    btnBlur.classList.remove('current');
-    btnConstrast.classList.remove('current');
-    btnGrayscale.classList.remove('current');
-    btnDrop.classList.remove('current');
-    btnHue.classList.remove('current');
-    image.classList.remove('blur');
-    image.classList.remove('drop');
-    image.classList.remove('grayscale');
-    image.classList.remove('contrast');
-    image.classList.remove('hue');
+    image.classList.remove('hue', 'contrast', 'grayscale', 'drop', 'blur');
 });
