@@ -1,5 +1,6 @@
 const blockquote = document.querySelector('#blockquote');
 const img = document.querySelector('#image');
+const btn = document.querySelector('#btn');
 
     // fetch settings; PAS DIT AAN
 let url = 'https://api.chucknorris.io/jokes/random'; // basis url
@@ -24,3 +25,8 @@ blockquote.innerHTML = data.value;
 img.src = data.icon_url;
 console.log(data);
 }
+
+btn.addEventListener('click', function () {
+    location.reload();
+
+});
