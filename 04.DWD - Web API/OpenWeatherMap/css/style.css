@@ -1,0 +1,68 @@
+body{
+    background-color: white;
+    
+}
+main{
+    margin-top: 6rem;
+    height: 50rem;
+    margin-left: 10rem;
+    width: 80%;
+    position: relative;
+
+}
+h1{
+    text-align: center;
+}
+.weeroverzicht img
+{
+	display: block;
+	margin: 0 auto;
+}
+/*Kolommen van weeroverzicht*/
+.content-table
+{
+	border-collapse: collapse;
+	border-radius: 0.5rem;
+	box-shadow: 0 0 20px rgba(163, 152, 152, 0.15);
+	font-size: 1.2rem;
+	margin: 25px 0;
+	overflow: hidden;
+}
+.content-table
+{
+	background-color: #ffffff;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	width: 60%;
+}
+.content-table thead tr
+{
+	background-color: #169825;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: left;
+}
+.content-table th,
+.content-table td
+{
+	padding: 12px 15px;
+}
+.content-table tbody tr
+{
+	border-bottom: 1px solid #169825;
+}
+.content-table tbody tr:nth-of-type(even)
+{
+	background-color: #F6F3F3;
+}
+.content-table tbody tr:last-of-type
+{
+	border-bottom: 2px solid #169825;
+}
+.content-table tbody tr.active-row
+{
+
+	color: black;
+	font-weight: bold;
+}

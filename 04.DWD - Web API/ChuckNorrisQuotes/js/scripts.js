@@ -7,8 +7,6 @@ let url = 'https://api.chucknorris.io/jokes/random'; // basis url
 
 let options = {}; // extra opties
 let params = new URLSearchParams(); // extra parameters
-params.append('parameter1', 'value1');
-params.append('parameter2', 'value2');
 url += '?' + params.toString();
 // fetch url; LAAT ONGEWIJZIGD
 fetch(url, options)

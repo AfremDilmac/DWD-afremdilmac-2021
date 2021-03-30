@@ -8,10 +8,30 @@
     <title>Document</title>
 </head>
 <body>
+    <main>
+        <h1>OpenWeatherMap</h1>
+        <a class="weeroverzicht" href="http://www.buienradar.be" target="_blank" rel="noopener"><img alt="" src="https://image.buienradar.nl/2.0/image/animation/RadarMapRainWebmercatorBE?height=512&width=550&extension=png&renderBackground=True&RenderBranding=true&renderText=True&history=3&forecast=3&skip=1"></a>
+        <!--Tabel weeroverzicht geinspireerd door: https://www.youtube.com/watch?v=biI9OFH6Nmg -->
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Stad</th>
+              <th>Graden</th>
+              <th>Weer</th>
+    
+            </tr>
+    
+          </thead>
+          <tbody>
+            <tr class="active-row">
+              <td id="stad"></td>
+              <td id="graden"></td>
+              <td id="weer"></td>
+            </tr>
+          </tbody>
+        </table>
+    </main>
     <p id="weather"></p>
-    <button id="btnBrussel">Brussel</button>
-    <button id="btnParis">Paris</button>
-    <button id="btnAmsterdam">Amsterdam</button>
     <script src="js/scripts.js"></script>
 </body>
 </html>
