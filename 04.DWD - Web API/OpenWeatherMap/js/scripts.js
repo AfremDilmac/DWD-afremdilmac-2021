@@ -76,14 +76,15 @@ fetch(url2, options2)
 function verwerkFout2(err2) {
 console.log('request mislukt: ', err2)
 }
+
 // verwerk data –  PARIJS
 function verwerkData2(data2) {
 console.log('ontvangen data: ', data2)
 frstad.innerHTML = data2.name;
 frgraden.innerHTML = `${data2.main.temp} ℃`;
 frweer.innerHTML = `${data2.weather[0].description}`;
-
 }
+
 /*
  {
         "id": 2759794,

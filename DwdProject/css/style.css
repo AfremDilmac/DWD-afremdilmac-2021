@@ -1,0 +1,121 @@
+
+body{
+    background: linear-gradient(#e600ee, #515cda);
+    
+}
+/*Wrapper*/
+.wrapper{
+    margin-top: 6.45rem;
+    text-align: center;
+    font-family: Bungee;
+}
+
+h1{
+    font-size: 30px;
+}
+
+
+
+#canvas{
+
+    width: 1000px;
+    height: 625px;
+    border: 2px solid black;
+    justify-content: center;
+    background-image: url(../img/forest2.jpg);
+    border-radius: 2%;
+
+    
+}
+/*GUI*/
+
+
+/*Sprite movement en animaties bron internet: 
+https://www.youtube.com/watch?v=ekI7vjkFrGA
+https://codepen.io/punkydrewster713/pen/LYYQBEZ
+Gewijzigd om het beter te maken via classlists -> javascript*/
+
+:root{
+    --pixel-size: 2;
+}
+
+button{
+    display: flex;
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 15px;
+    font-size:20px;
+    margin-top: 30px;
+    margin: 0 auto;
+    background-color: #515cda;
+    color: white;
+    font-family: Bungee;
+    border: 2px solid black;
+    border-radius: 6%;
+   
+}
+
+button:hover{
+    color: white;
+    transition: 0.3s;
+    background-color: #e600ee;
+}
+
+.character{
+    width: calc(32px * var(--pixel-size));
+    height: calc(48px * var(--pixel-size));
+    overflow: hidden;
+    position: absolute;
+    margin: 4em auto;
+    
+}
+
+.characterSpritesheet{
+    animation: moveSpritesheet 1s steps(4) infinite;
+    width: calc(128px * var(--pixel-size));
+    position: relative;
+}
+
+.cleanrender{
+    image-rendering: pixelated;
+}
+
+.face-right{
+    top: calc(-96px * var(--pixel-size));
+}
+
+.face-left{
+    top: calc(-48px * var(--pixel-size));
+}
+
+.face-up{
+    top: calc(-142px * var(--pixel-size));
+}
+
+.face-down{
+    top: calc(0px * var(--pixel-size));
+}
+
+@keyframes moveSpritesheet{
+    from{
+        transform: translate3d(0px, 0, 0)
+    }
+    to{
+        transform: translate3d(-100%, 0,0)
+    }
+}
+/*Sound*/
+#sldsize{
+    overflow: hidden;
+    width: 30%;
+}
+
+.slidecontainer{
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+
