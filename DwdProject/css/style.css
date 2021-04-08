@@ -1,8 +1,31 @@
 
 body{
     background: linear-gradient(#e600ee, #515cda);
-    
+    height: 100%;
 }
+
+.about h3{
+    color: black;
+}
+
+.about{
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background: linear-gradient(#515cda, #e600ee);
+    position: fixed;
+    border-radius:20%;
+    overflow: auto;
+    border: 2px solid black;
+    color: white;
+}
+.sidebar p{
+    display: block;
+   
+    padding: 16px;
+    text-decoration: none;
+}
+
 /*Wrapper*/
 .wrapper{
     margin-top: 6.45rem;
@@ -16,29 +39,20 @@ h1{
 
 
 
-#canvas{
-
+#canvas1{
     width: 1000px;
     height: 625px;
-    border: 2px solid black;
+    border: 1px black solid;
+    background: #d79c50;
     justify-content: center;
+    border-radius: 10%;
     background-image: url(../img/forest2.jpg);
-    border-radius: 2%;
-
     
 }
 /*GUI*/
 
 
-/*Sprite movement en animaties bron internet: 
-https://www.youtube.com/watch?v=ekI7vjkFrGA
-https://codepen.io/punkydrewster713/pen/LYYQBEZ
-Gewijzigd om het beter te maken via classlists -> javascript*/
-
-:root{
-    --pixel-size: 2;
-}
-
+/*Start game*/
 button{
     display: flex;
     padding-top: 15px;
@@ -62,49 +76,6 @@ button:hover{
     background-color: #e600ee;
 }
 
-.character{
-    width: calc(32px * var(--pixel-size));
-    height: calc(48px * var(--pixel-size));
-    overflow: hidden;
-    position: absolute;
-    margin: 4em auto;
-    
-}
-
-.characterSpritesheet{
-    animation: moveSpritesheet 1s steps(4) infinite;
-    width: calc(128px * var(--pixel-size));
-    position: relative;
-}
-
-.cleanrender{
-    image-rendering: pixelated;
-}
-
-.face-right{
-    top: calc(-96px * var(--pixel-size));
-}
-
-.face-left{
-    top: calc(-48px * var(--pixel-size));
-}
-
-.face-up{
-    top: calc(-142px * var(--pixel-size));
-}
-
-.face-down{
-    top: calc(0px * var(--pixel-size));
-}
-
-@keyframes moveSpritesheet{
-    from{
-        transform: translate3d(0px, 0, 0)
-    }
-    to{
-        transform: translate3d(-100%, 0,0)
-    }
-}
 /*Sound*/
 #sldsize{
     overflow: hidden;
