@@ -2,8 +2,14 @@ const character = document.querySelector('#img');
 const btnPlay = document.querySelector('#btnplay');
 const txtSound = document.querySelector('#lblpercentage');
 const sldSize = document.querySelector('#sldsize');
+const btnFullScreen = document.querySelector('#btnfullscreen');
+const btnMuteSound = document.querySelector('#btnmute');
+const btnUnmuteSound = document.querySelector('#btnunmute');
+const btnNormalScreen = document.querySelector('#btnnormal');
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
+const countdown = document.querySelector('#countdown');
+const buttons = document.querySelectorAll('.options button');
 
 //Canvas
 canvas.width = 800;
@@ -97,5 +103,28 @@ sldSize.addEventListener('click', function () {
 
 btnPlay.addEventListener('click', function(){
     sndStart.play();
- 
+});
+
+//Options
+buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelector('.current').classList.remove('current');
+        btn.classList.add('current');
+        console.log(btn.innerHTML);
+    });
+});
+btnFullScreen.addEventListener('click', function(){
+    document.getElementById("canvas1").requestFullscreen()
+});
+
+btnMuteSound.addEventListener('click', function(){
+    sndStart.muted = true;
+});
+
+btnUnmuteSound.addEventListener('click', function(){
+    sndStart.muted = false;
+});
+
+btnNormalScreen.addEventListener('click', function(){
+    document.exitFullscreen();
 });
