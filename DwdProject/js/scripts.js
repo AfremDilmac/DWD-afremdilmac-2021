@@ -11,6 +11,7 @@ canvas.height = 500;
 //Character movement geleerd op bron: https://www.youtube.com/watch?v=EYf_JwzwTlQ&t=923s
 const keys = [];
 
+//character parameters
 const player = {
     x: 400,
     y: 220,
@@ -25,13 +26,10 @@ const player = {
 const playerSprite = new Image();
 playerSprite.src = "img/sprite.png";
 
-
-
-
 function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH){
     ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
 }
-
+//Character animation
 function animate(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
@@ -42,6 +40,25 @@ function animate(){
 }
 animate();
 
+function handlePlayerFrame(){
+    if (player.frameX < 3 && player.moving) {
+        player.frameX++;
+    }
+    else player.frameX = 0;
+}
+//Animation On/Off wanneer ik op een toets druk of niet.
+window.addEventListener("keydown", function(e){
+    keys[e.keyCode] = true;
+    player.moving = true;
+});
+
+window.addEventListener("keyup", function(e){
+    delete keys[e.keyCode];
+    player.moving = false;
+});
+
+
+//character movement
 function movePlayer(){
     if (keys[38] && player.y > 0 ) {
         player.y -= player.speed;
@@ -64,23 +81,7 @@ function movePlayer(){
     }
 }
 
-function handlePlayerFrame(){
-    if (player.frameX < 3 && player.moving) {
-        player.frameX++;
-    }
-    else player.frameX = 0;
-}
 
-
-window.addEventListener("keydown", function(e){
-    keys[e.keyCode] = true;
-    player.moving = true;
-});
-
-window.addEventListener("keyup", function(e){
-    delete keys[e.keyCode];
-    player.moving = false;
-});
 
 //Sound
 let sndStart = new Audio();
