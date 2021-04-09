@@ -51,13 +51,14 @@ function animate(){
 }
 animate();
 
+//Animation On/Off wanneer ik op een toets druk of niet.
 function handlePlayerFrame(){
     if (player.frameX < 3 && player.moving) {
         player.frameX++;
     }
     else player.frameX = 0;
 }
-//Animation On/Off wanneer ik op een toets druk of niet.
+
 window.addEventListener("keydown", function(e){
     keys[e.keyCode] = true;
     player.moving = true;
@@ -67,7 +68,6 @@ window.addEventListener("keyup", function(e){
     delete keys[e.keyCode];
     player.moving = false;
 });
-
 
 //character movement
 function movePlayer(){
@@ -111,7 +111,7 @@ sldSize.addEventListener('click', function () {
 
 
 
-//Options
+//Options + sound foreach button
 buttons.forEach(btn => {
     btn.addEventListener('click', function () {
         document.querySelector('.current').classList.remove('current');
