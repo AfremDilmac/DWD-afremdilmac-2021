@@ -36,13 +36,13 @@ body{
 }
 
 #canvas1{
-    width: 1000px;
+    width: 830px;
     height: 625px;
     border: 1px black solid;
     background: #d79c50;
     justify-content: center;
     border-radius: 5%;
-    background-image: url(../img/test.png);
+    background-image: url(../img/Tileset.png);
     
 }
 /*Options*/

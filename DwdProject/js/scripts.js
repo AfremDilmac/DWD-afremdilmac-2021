@@ -11,6 +11,11 @@ const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
 
+//Start game
+btnPlay.addEventListener('click', function(){
+    sndStart.play();
+});
+
 //Canvas
 canvas.width = 800;
 canvas.height = 500;
@@ -71,17 +76,17 @@ function movePlayer(){
         player.frameY = 3;
     }
 
-    if (keys[37] && player.x > 0 ) {
+    if (keys[37] && player.x > 20 ) {
         player.x -= player.speed;
         player.frameY = 1;
     }
 
-    if (keys[40] && player.y < canvas.height - player.height) {
+    if (keys[40] && player.y < canvas.height - 120) {
         player.y += player.speed;
         player.frameY = 0;
     }
 
-    if (keys[39] && player.x < canvas.width - player.width) {
+    if (keys[39] && player.x < canvas.width - 52) {
         player.x += player.speed;
         player.frameY = 2;
     }
@@ -94,6 +99,10 @@ let sndStart = new Audio();
 sndStart.volume = 0.5;
 sndStart.src = "snd/play.mp3";
 
+let sndOptions = new Audio();
+sndOptions.volume = 0.5;
+sndOptions.src = "snd/options.mp3"
+
 sldSize.addEventListener('click', function () {
     txtSound.innerHTML = sldSize.value + '%';
     let sound = sldSize.value / 100;
@@ -101,16 +110,13 @@ sldSize.addEventListener('click', function () {
 });
 
 
-btnPlay.addEventListener('click', function(){
-    sndStart.play();
-});
 
 //Options
 buttons.forEach(btn => {
     btn.addEventListener('click', function () {
         document.querySelector('.current').classList.remove('current');
         btn.classList.add('current');
-        console.log(btn.innerHTML);
+        sndOptions.play();
     });
 });
 btnFullScreen.addEventListener('click', function(){
