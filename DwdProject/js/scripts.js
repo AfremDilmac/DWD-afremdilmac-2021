@@ -12,12 +12,9 @@ const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
 
 //Start game
-btnPlay.addEventListener('click', function () {
-    sndStart.play();
-});
 btnPlay.addEventListener('click', function (e) {
     document.getElementById("canvas1").requestFullscreen()
-
+   
     //Canvas
     canvas.width = 800;
     canvas.height = 500;
@@ -100,6 +97,7 @@ btnPlay.addEventListener('click', function (e) {
     let sndStart = new Audio();
     sndStart.volume = 0.5;
     sndStart.src = "snd/play.mp3";
+    sndStart.play();
 
     let sndOptions = new Audio();
     sndOptions.volume = 0.5;
