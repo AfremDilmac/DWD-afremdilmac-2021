@@ -11,13 +11,31 @@ const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
 
+
 //Start game
 btnPlay.addEventListener('click', function (e) {
-    document.getElementById("canvas1").requestFullscreen()
-   
+
+
     //Canvas
     canvas.width = 800;
     canvas.height = 500;
+
+    //Timer
+    let timer;
+    let i = 3;
+    let minuten;
+    let seconden;
+
+    function test() {
+        i--;
+        countdown.innerHTML = Math.floor(i / 60) + ' : ' + Math.floor(i % 60);
+        if (countdown.innerHTML == '0 : 0') {
+            canvas.style.visibility = 'hidden';
+            countdown.innerHTML = '0';
+        }
+    }
+    timer = setInterval(test, 1000);
+
     //Character movement geleerd op bron: https://www.youtube.com/watch?v=EYf_JwzwTlQ&t=923s
     const keys = [];
 
@@ -54,8 +72,7 @@ btnPlay.addEventListener('click', function (e) {
     function handlePlayerFrame() {
         if (player.frameX < 3 && player.moving) {
             player.frameX++;
-        }
-        else player.frameX = 0;
+        } else player.frameX = 0;
     }
 
     window.addEventListener("keydown", function (e) {

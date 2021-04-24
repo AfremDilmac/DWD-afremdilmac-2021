@@ -43,8 +43,8 @@ body{
     justify-content: center;
     border-radius: 5%;
     background-image: url(../img/Tileset.png);
-    
 }
+
 /*Options*/
 .options{
     display: flex;
