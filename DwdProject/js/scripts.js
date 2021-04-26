@@ -6,6 +6,7 @@ const btnFullScreen = document.querySelector('#btnfullscreen');
 const btnMuteSound = document.querySelector('#btnmute');
 const btnUnmuteSound = document.querySelector('#btnunmute');
 const btnNormalScreen = document.querySelector('#btnnormal');
+const btnDarkMode = document.querySelector('#btndark');
 const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
@@ -21,12 +22,12 @@ btnPlay.addEventListener('click', function (e) {
     canvas.height = 500;
 
     //Timer
-    let timer;
-    let i = 3;
+    let time;
+    let i = 60;
     let minuten;
     let seconden;
 
-    function test() {
+    function timer() {
         i--;
         countdown.innerHTML = Math.floor(i / 60) + ' : ' + Math.floor(i % 60);
         if (countdown.innerHTML == '0 : 0') {
@@ -34,7 +35,7 @@ btnPlay.addEventListener('click', function (e) {
             countdown.innerHTML = '0';
         }
     }
-    timer = setInterval(test, 1000);
+    time = setInterval(timer, 1000);
 
     //Character movement geleerd op bron: https://www.youtube.com/watch?v=EYf_JwzwTlQ&t=923s
     const keys = [];
