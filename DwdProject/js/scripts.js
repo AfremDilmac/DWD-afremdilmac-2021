@@ -7,15 +7,13 @@ const btnMuteSound = document.querySelector('#btnmute');
 const btnUnmuteSound = document.querySelector('#btnunmute');
 const btnNormalScreen = document.querySelector('#btnnormal');
 const btnDarkMode = document.querySelector('#btndark');
-const canvas = document.getElementById('canvas1');
+const canvas = document.querySelector('.canvas1');
 const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
 
-
 //Start game
 btnPlay.addEventListener('click', function (e) {
-
 
     //Canvas
     canvas.width = 800;
@@ -31,8 +29,13 @@ btnPlay.addEventListener('click', function (e) {
         i--;
         countdown.innerHTML = Math.floor(i / 60) + ' : ' + Math.floor(i % 60);
         if (countdown.innerHTML == '0 : 0') {
-            canvas.style.visibility = 'hidden';
-            countdown.innerHTML = '0';
+            btnPlay.innerHTML = "restart game";
+            canvas.classList.add('gameover');
+            clearInterval(time);
+        }
+        else{
+            canvas.classList.remove('gameover');
+            btnPlay.innerHTML = "play game";
         }
     }
     time = setInterval(timer, 1000);
@@ -52,20 +55,35 @@ btnPlay.addEventListener('click', function (e) {
         moving: false,
     };
 
+    const enemy = {
+        x: 320,
+        y: 120,
+        width: 50,
+        height: 64,
+        frameX: 0,
+        frameY: 0,
+        speed: 1,
+        moving: false,
+    }
+
     const playerSprite = new Image();
     playerSprite.src = "img/sprite.png";
+
+    const enemySprite = new Image();
+    enemySprite.src = "img/spriteryuk.png";
 
     function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
         ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
     }
+
     //Character animation
     function animate() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
+        drawSprite(enemySprite, enemy.width * enemy.frameX, enemy.height * enemy.frameY, enemy.width, enemy.height, enemy.x, enemy.y, enemy.width, enemy.height);
         movePlayer();
         requestAnimationFrame(animate);
         handlePlayerFrame();
-
     }
     animate();
 
