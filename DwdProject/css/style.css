@@ -1,123 +1,194 @@
-body{
+body {
     background: linear-gradient(#e600ee, #515cda);
     height: 100%;
 }
 
-.about h3{
+.about h3 {
     color: black;
 }
 
-.about{
+.about {
     margin: 0;
     padding: 0;
     width: 20%;
     background: linear-gradient(#515cda, #e600ee);
     position: fixed;
-    border-radius:20%;
+    border-radius: 20%;
     overflow: auto;
     border: 2px solid black;
     color: white;
 }
-.sidebar p{
+
+.sidebar p {
     display: block;
     padding: 16px;
     text-decoration: none;
 }
+/*Login*/
+.loginstart {
+    background-color: #6c13a0;
+    width: 20%;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 30px;
+    padding-top: 20px;
+    margin-top: 3.9rem;
+    margin-bottom: 7rem;
+    color: white;
+}
+
+.loginstart input{
+    display: block;
+    flex-flow: row nowrap;
+    margin: 0 auto;
+}
+
+#inpavatar{
+    margin-bottom: 10px;
+}
+
+.login{
+    width: 0px;
+    height: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    visibility: hidden;
+
+}
+
+#character1, #character2{
+    display: inline-block;
+}
+
+.loginstart p, .login p{
+    margin-bottom: 0px;
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+}
+
+#btnlogin{
+    padding: 0px 20px;
+    background-color: #515cda;
+    color: white;
+    font-family: Bungee;
+    border: 2px solid black;
+    border-radius: 6%;
+    display: block;
+    margin: 0 auto;
+}
+
+#btnlogin:hover{
+    transition: 0.3s;
+    background-color: #e600ee;
+}
 
 /*Wrapper*/
-.wrapper{
+.wrapper {
     text-align: center;
     font-family: Bungee;
 }
 
-.wrapper h1{
+.wrapper h1 {
     font-size: 30px;
     margin-top: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
 }
 
-.canvas1{
+.canvas1 {
+    width: 0px;
+    border: 2px black solid;
+    visibility: hidden;
+    justify-content: center;
+    border-radius: 5%;
+    margin-bottom: 13px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.gamestart {
     width: 830px;
     height: 625px;
-    border: 1px black solid;
-    background: #d79c50;
+    border: 2px black solid;
     justify-content: center;
     border-radius: 5%;
     background-image: url(../img/Tileset.png);
+    margin-bottom: 13px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.gameover{
+.gameover {
     background-image: url(../img/gameover.png);
     filter: grayscale(80%);
 }
 
 /*Options*/
-.options{
+.options {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
     list-style: none;
 }
-.options button{
+
+.options button {
     margin-right: 5px;
-    
+    margin-top: 5px;
     color: black;
     font-family: Bungee;
     border: 2px solid black;
 }
 
-.current{
+.current {
     background-color: gray;
 }
 
 /*Start game*/
-#btnplay{
+#btnplay {
     display: flex;
     padding-top: 15px;
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 15px;
-    font-size:20px;
-    margin-top: 30px;
+    font-size: 20px;
     margin: 0 auto;
     background-color: #515cda;
     color: white;
     font-family: Bungee;
     border: 2px solid black;
     border-radius: 6%;
-   
+
 }
 
-#btnplay:hover{
-    color: white;
+#btnplay:hover {
     transition: 0.3s;
     background-color: #e600ee;
 }
 
-.options button:hover{
+.options button:hover {
     color: white;
     transition: 0.3s;
     background-color: #515cda;
 }
 
 /*Sound*/
-#sldsize{
+#sldsize {
     overflow: hidden;
     width: 30%;
 }
 
-.slidecontainer{
+.slidecontainer {
     display: flex;
     justify-content: center;
-    
+
 }
 
 /*Timer*/
-#countdown{
+#countdown {
     font-family: bungee;
     font-size: 18px;
     display: flex;
     justify-content: center;
-    margin-bottom:0px;
+    margin-bottom: 0px;
     margin-top: 2px;
 }

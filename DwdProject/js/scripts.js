@@ -11,6 +11,25 @@ const canvas = document.querySelector('.canvas1');
 const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
+const login = document.querySelector('.loginstart');
+const inpUsername = document.querySelector('#username');
+const inpAvatar = document.querySelector('#avatar');
+const rdbCharacter1 = document.querySelector('#character1');
+const rdbCharacter2 = document.querySelector('#character2');
+
+
+//Choose character
+const playerSprite = new Image();
+rdbCharacter2.addEventListener('click', function(){
+    playerSprite.src = "img/sprite2.png";
+});
+
+rdbCharacter1.addEventListener('click', function(){
+    playerSprite.src = "img/sprite.png";
+});
+
+const enemySprite = new Image();
+enemySprite.src = "img/spriteryuk.png";
 
 //Start game
 btnPlay.addEventListener('click', function (e) {
@@ -18,6 +37,12 @@ btnPlay.addEventListener('click', function (e) {
     //Canvas
     canvas.width = 800;
     canvas.height = 500;
+    canvas.classList.add('gamestart');
+    canvas.classList.remove('canvas1');
+    login.classList.add('login');
+    login.classList.remove('loginstart');
+    inpUsername.innerHTML = '';
+    inpAvatar.innerHTML = '';
 
     //Timer
     let time;
@@ -65,12 +90,6 @@ btnPlay.addEventListener('click', function (e) {
         speed: 1,
         moving: false,
     }
-
-    const playerSprite = new Image();
-    playerSprite.src = "img/sprite.png";
-
-    const enemySprite = new Image();
-    enemySprite.src = "img/spriteryuk.png";
 
     function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
         ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -127,16 +146,14 @@ btnPlay.addEventListener('click', function (e) {
         }
     }
 
-
-
     //Sound
     let sndStart = new Audio();
-    sndStart.volume = 0.5;
+    sndStart.volume = 0.2;
     sndStart.src = "snd/play.mp3";
     sndStart.play();
 
     let sndOptions = new Audio();
-    sndOptions.volume = 0.5;
+    sndOptions.volume = 0.1;
     sndOptions.src = "snd/options.mp3"
 
     sldSize.addEventListener('click', function () {
@@ -144,8 +161,6 @@ btnPlay.addEventListener('click', function (e) {
         let sound = sldSize.value / 100;
         sndStart.volume = sound;
     });
-
-
 
     //Options + sound foreach button
     buttons.forEach(btn => {
@@ -172,3 +187,4 @@ btnPlay.addEventListener('click', function (e) {
         document.getElementById("canvas1").requestFullscreen()
     });
 });
+
