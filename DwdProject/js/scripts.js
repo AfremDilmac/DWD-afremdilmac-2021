@@ -16,7 +16,23 @@ const inpUsername = document.querySelector('#username');
 const inpAvatar = document.querySelector('#avatar');
 const rdbCharacter1 = document.querySelector('#character1');
 const rdbCharacter2 = document.querySelector('#character2');
+const inpChooseCharacter1 = document.querySelector('#character1');
+const inpChooseCharacter2 = document.querySelector('#character2');
 
+window.addEventListener("load", function(event) 
+{
+    btnPlay.disabled = true;
+});
+
+inpChooseCharacter1.addEventListener('click', function(e){
+    btnPlay.disabled = false;
+    btnPlay.classList.add('btnplay');
+});
+
+inpChooseCharacter2.addEventListener('click', function(e){
+    btnPlay.disabled = false;
+    btnPlay.classList.add('btnplay');
+});
 
 //Choose character
 const playerSprite = new Image();
@@ -33,8 +49,8 @@ enemySprite.src = "img/spriteryuk.png";
 
 //Start game
 btnPlay.addEventListener('click', function (e) {
-
-    //Canvas
+ {
+        //Canvas
     canvas.width = 800;
     canvas.height = 500;
     canvas.classList.add('gamestart');
@@ -46,7 +62,7 @@ btnPlay.addEventListener('click', function (e) {
 
     //Timer
     let time;
-    let i = 60;
+    let i = 300;
     let minuten;
     let seconden;
 
@@ -81,13 +97,13 @@ btnPlay.addEventListener('click', function (e) {
     };
 
     const enemy = {
-        x: 320,
-        y: 120,
-        width: 50,
+        x: 110,
+        y: 300,
+        width: 48,
         height: 64,
         frameX: 0,
         frameY: 0,
-        speed: 1,
+        speed: 0.65,
         moving: false,
     }
 
@@ -101,6 +117,8 @@ btnPlay.addEventListener('click', function (e) {
         drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
         drawSprite(enemySprite, enemy.width * enemy.frameX, enemy.height * enemy.frameY, enemy.width, enemy.height, enemy.x, enemy.y, enemy.width, enemy.height);
         movePlayer();
+        moveEnnemy();
+       // gameOver();
         requestAnimationFrame(animate);
         handlePlayerFrame();
     }
@@ -128,24 +146,63 @@ btnPlay.addEventListener('click', function (e) {
         if (keys[38] && player.y > 0) {
             player.y -= player.speed;
             player.frameY = 3;
+            console.log(keys[38]);
         }
 
         if (keys[37] && player.x > 20) {
             player.x -= player.speed;
             player.frameY = 1;
+            console.log(keys[37]);
         }
 
         if (keys[40] && player.y < canvas.height - 120) {
             player.y += player.speed;
             player.frameY = 0;
+            console.log(keys[40]);
         }
 
         if (keys[39] && player.x < canvas.width - 52) {
             player.x += player.speed;
             player.frameY = 2;
+            console.log(keys[39]);
         }
     }
+    //Hier bereken ik het afstand tussen onze enemy en speler en laat ik onze monster naar ons speler lopen. 
+    function moveEnnemy() {
+        let differencex = enemy.x - player.x;
+        let differencey = enemy.y - player.y;
+         
+        if (differencey > 0) {
+            enemy.y -= enemy.speed;
+            enemy.frameY = 3;
+        }
 
+        if (differencex > 0) {
+            enemy.x -= enemy.speed;
+            enemy.frameY = 1;
+        }
+
+        if (differencey < 0) {
+            enemy.y += enemy.speed;
+            enemy.frameY = 0;
+        }
+
+        if (differencex < 0) {
+            enemy.x += enemy.speed;
+            enemy.frameY = 2;
+        }
+    }
+/*
+    function gameOver() {
+        let differencex = enemy.x - player.x;
+        let differencey = enemy.y - player.y;
+         
+        if (differencey == 0 && differencex == 0) {
+            canvas.classList.remove('gameover');
+            btnPlay.innerHTML = "play game";
+        }
+    }
+*/ 
     //Sound
     let sndStart = new Audio();
     sndStart.volume = 0.2;
@@ -161,6 +218,9 @@ btnPlay.addEventListener('click', function (e) {
         let sound = sldSize.value / 100;
         sndStart.volume = sound;
     });
+    }
+
+    
 
     //Options + sound foreach button
     buttons.forEach(btn => {

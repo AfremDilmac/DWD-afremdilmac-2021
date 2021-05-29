@@ -32,8 +32,8 @@ body {
     border-radius: 10px;
     padding: 30px;
     padding-top: 20px;
-    margin-top: 3.9rem;
-    margin-bottom: 7rem;
+    margin-top: 3rem;
+    margin-bottom: 3.9rem;
     color: white;
 }
 
@@ -53,7 +53,12 @@ body {
     margin-top: 0px;
     margin-bottom: 0px;
     visibility: hidden;
+}
 
+#lblhelp{
+    margin-top: 0px;
+    color: #000000;
+    font-size: 13px
 }
 
 #character1, #character2{
@@ -144,7 +149,7 @@ img{
 }
 
 /*Start game*/
-#btnplay {
+.btnstart {
     display: flex;
     padding-top: 15px;
     padding-left: 40px;
@@ -152,7 +157,22 @@ img{
     padding-bottom: 15px;
     font-size: 20px;
     margin: 0 auto;
-    background-color: #515cda;
+    background-color: #5c5c5c;
+    color: white;
+    font-family: Bungee;
+    border: 2px solid black;
+    border-radius: 6%;
+}
+
+.btnplay {
+    display: flex;
+    padding-top: 15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 15px;
+    font-size: 20px;
+    margin: 0 auto;
+    background-color: #065ba0;
     color: white;
     font-family: Bungee;
     border: 2px solid black;
@@ -160,7 +180,7 @@ img{
 
 }
 
-#btnplay:hover {
+.btnplay:hover {
     transition: 0.3s;
     background-color: #e600ee;
 }
