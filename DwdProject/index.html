@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Bungee&display=swap" rel="stylesheet">
+    <link rel=" stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/fbc5271e25.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
@@ -24,23 +26,35 @@
         <div class="about">
             <h3>About game:</h3>
             <p>You can choose between L or Light and have to avoid Ryuk the god of death. If he catches you it is lost.</p>
+            <p id="name">Name:</p>
         </div>
-
+        <div class="wrap">
+            <h3>Keys to play the game</h3>
+            <p>Movement:</p>
+            <img class="keyboardarrows" src="img/movement.png" alt="keyboard arrows image" />
+            <p>Shoot:</p>
+            <img class="keyboardshoot" src="img/shootkey.png" alt="keyboard y key image" />
+        </div>
         <div class="loginstart">
-        <label id="username">username:</label>
+        <label id="username">username(optioneel): </label>
         <input type="text" id="inpusername" value="">
-        <label id="avatar">avatar:</label>
+        <label id="avatar">avatar(optioneel):</label>
         <input type="text" id="inpavatar" value="">
         <p>Choose character:</p>
-        <img src="img/character1.png" alt="Character1 image">
-        <input type="radio" id="character1" name="character">
-        <img src="img/character2.png" alt="Character1 image">
-        <input type="radio" id="character2" name="character">
-        <p id="lblhelp">Please choose a character !</p>
-        <button id="btnlogin">Ready</button>
-
+        <div class="choosecharacter">
+        <button id="btnleft" class="btncharacter"><i class="fas fa-arrow-left"></i></button>
+        <div id="figBig">
+        <img id="character" src="img/character1.png" alt="random image">
         </div>
-
+        <button id="btnright" class="btncharacter"><i class="fas fa-arrow-right"></i></button>
+        </div>
+        <div class="thumbs">
+            <div data-photo="img/character1.png" class="current"><img src="img/character1.png" alt="Character 1"></div>
+            <div data-photo="img/character2.png"><img src="img/character2.png" alt="Character 2"></div>
+        </div>
+        <p id="lblhelp">Please choose a character !</p>
+        <button class="btnlogin" id="btnlogin">Ready</button>
+        </div>
         <canvas class="canvas1"></canvas>
         <button id="btnplay" class="btnstart">Play Game</button>
         <div class="slidecontainer">

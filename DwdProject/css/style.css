@@ -24,16 +24,44 @@ body {
     padding: 16px;
     text-decoration: none;
 }
+
+.wrap h3{
+    color: black;
+    margin-bottom: 0;
+}
+
+.wrap p{
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.keyboardshoot{
+    margin-bottom: 0.3rem;
+}
+
+.wrap{
+    width: 20%;
+    background: linear-gradient(#515cda, #e600ee);
+    border-radius: 20%;
+    overflow: auto;
+    border: 2px solid black;
+    color: white;
+    float: right;
+}
+.keyboardarrows{
+    width: 50%;
+}
+
 /*Login*/
 .loginstart {
-    background-color: #6c13a0;
-    width: 20%;
+    background: linear-gradient(#515cda, #e600ee);
+    border: 3px solid black;
+    width: 30rem;
     margin: 0 auto;
     border-radius: 10px;
     padding: 30px;
     padding-top: 20px;
     margin-top: 3rem;
-    margin-bottom: 3.9rem;
+    margin-bottom: 3.5rem;
     color: white;
 }
 
@@ -42,9 +70,16 @@ body {
     flex-flow: row nowrap;
     margin: 0 auto;
 }
+#inpusername, #inpavatar{
+    border: 2px solid black;
+}
 
 #inpavatar{
     margin-bottom: 10px;
+}
+
+#character, #btnleft, #btnright{
+    margin-bottom: 1rem;
 }
 
 .login{
@@ -74,20 +109,22 @@ img{
     margin: 0 auto;
 }
 
-#btnlogin{
+.choosecharacter{
+    display: flex;
+    flex: space-between;
+    width: 20%;
+    margin: 0 auto;
+}
+
+.btnlogin{
     padding: 0px 20px;
-    background-color: #515cda;
     color: white;
+    background-color: #515cda;
     font-family: Bungee;
     border: 2px solid black;
     border-radius: 6%;
     display: block;
     margin: 0 auto;
-}
-
-#btnlogin:hover{
-    transition: 0.3s;
-    background-color: #e600ee;
 }
 
 /*Wrapper*/
@@ -151,17 +188,37 @@ img{
 /*Start game*/
 .btnstart {
     display: flex;
-    padding-top: 15px;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 15px;
+    padding-top: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 12px;
     font-size: 20px;
     margin: 0 auto;
-    background-color: #5c5c5c;
+    background-color: #6e6e6e;
     color: white;
     font-family: Bungee;
     border: 2px solid black;
     border-radius: 6%;
+}
+
+#character{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.thumbs{
+  display: none;
+}
+
+.btncharacter{
+    background-color: #515cda;
+    border: 2px solid black;
+    border-radius:10%;
+}
+
+.btncharacter:hover{
+    background-color: #e600ee;
+    transition: 0.3s;
 }
 
 .btnplay {
@@ -172,7 +229,7 @@ img{
     padding-bottom: 15px;
     font-size: 20px;
     margin: 0 auto;
-    background-color: #065ba0;
+    background-color: #515cda;
     color: white;
     font-family: Bungee;
     border: 2px solid black;
@@ -180,10 +237,17 @@ img{
 
 }
 
-.btnplay:hover {
+.btnplay:hover, .btnloginactivated:hover{
     transition: 0.3s;
     background-color: #e600ee;
 }
+
+
+.btnstart:hover, .btnlogin:hover {
+    transition: 0.3s;
+    background-color: #000000;
+}
+
 
 .options button:hover {
     color: white;
