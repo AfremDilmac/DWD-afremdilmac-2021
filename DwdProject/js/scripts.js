@@ -13,7 +13,7 @@ const ctx = canvas.getContext('2d');
 const countdown = document.querySelector('#countdown');
 const buttons = document.querySelectorAll('.options button');
 const login = document.querySelector('.loginstart');
-const inpAvatar = document.querySelector('#avatar');
+const inpAvatar = document.querySelector('#inpavatar');
 const rdbCharacter1 = document.querySelector('#character1');
 const rdbCharacter2 = document.querySelector('#character2');
 const inpChooseCharacter1 = document.querySelector('#character1');
@@ -26,11 +26,42 @@ const thumbs = document.querySelectorAll('.thumbs div');
 const btnLeft = document.querySelector('#btnleft');
 const btnRight = document.querySelector('#btnright');
 const currentCharacter = document.querySelector('#character');
+const btnGenerateRandom = document.querySelector('.btngenerate');
+const avatarImg = document.querySelector('#avatarimg');
 
 window.addEventListener("load", function (event) {
     btnPlay.disabled = true;
 });
 
+/*Generate random Username and Avatar*/
+//Button generate random values
+// fetch settings
+let url = 'https://random-user.p.rapidapi.com/getuser';
+let options = {
+"headers": {
+    "x-rapidapi-key": "994b50b238msh6dfad1c74f6c0b7p15229cjsn2d0a9730bd67",
+    "x-rapidapi-host": "random-user.p.rapidapi.com"
+}
+};
+// fetch url
+fetch(url, options)
+.then(resp => { return resp.json(); })
+.then(data => verwerkData(data))
+.catch(err => verwerkFout(err));
+// verwerk fouten
+function verwerkFout(err) {
+console.log('request mislukt: ', err);
+}
+// verwerk data
+function verwerkData(data) {
+    console.log(data.results[0])
+    btnGenerateRandom.addEventListener('click', function (){
+        inpUsername.value = data.results[0].name.first;
+        inpAvatar.value = data.results[0].picture.medium;
+        avatarImg.src = inpAvatar.value;
+    });    
+}
+/*Choose character*/
 let currentImg = 0;
 
 thumbs.forEach(thn => {
@@ -60,14 +91,21 @@ function afbeeldingen(currImg) {
    figBig.querySelector('img').src = thumbs[currImg].getAttribute('data-photo');
 }
 
+/*Localstorage*/ 
 const username = {
     load: document.getElementById("btnlogin"),
     title: document.getElementById("name"),
     input: document.getElementById("inpusername"),
     saveName: document.getElementById("btnlogin"),
+    timer: document.getElementById("countdown"),
 }
 
 function saveToLocalStorage(key, value) {
+   /* let tim
+    if (condition) {
+        
+    }
+    */
     localStorage.setItem(key, value);
 }
 

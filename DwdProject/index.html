@@ -14,46 +14,58 @@
 
 <body>
     <div class="options">
-        <button id="btnmute">Mute sound</button>
-        <button id="btnunmute">Unmute sound</button>
-        <button id="btnfullscreen">Full screen</button>
-        <button id="btnnormal" class="current">Normal screen</button>
-    </div>
+        <div class="highscore">
+            <h3>Best player:</h3>
+            <p id="name">Name:</p>
+        </div>
 
-    <p id="countdown">5:00</p>
+        <div class="timer">
+            <p id="countdown">5:00</p>
+        </div>
+        <div class="container">
+            <button id="btnmute">Mute sound</button>
+            <button id="btnunmute">Unmute sound</button>
+            <button id="btnfullscreen">Full screen</button>
+            <button id="btnnormal" class="current">Normal screen</button>
+        </div>
+    </div>
     <div class="wrapper">
         <h1>Death note survival</h1>
         <div class="about">
             <h3>About game:</h3>
-            <p>You can choose between L or Light and have to avoid Ryuk the god of death. If he catches you it is lost.</p>
-            <p id="name">Name:</p>
+            <p>You can choose between L or Light and have to fight Ryuk the god of death. If he catches you it is lost.
+                With your superpower, you can shoot lasers with your eyes.</p>
         </div>
         <div class="wrap">
+            <img id="avatarimg" src="" alt="Avatar afbeelding">
             <h3>Keys to play the game</h3>
             <p>Movement:</p>
             <img class="keyboardarrows" src="img/movement.png" alt="keyboard arrows image" />
             <p>Shoot:</p>
             <img class="keyboardshoot" src="img/shootkey.png" alt="keyboard y key image" />
         </div>
+
         <div class="loginstart">
-        <label id="username">username(optioneel): </label>
-        <input type="text" id="inpusername" value="">
-        <label id="avatar">avatar(optioneel):</label>
-        <input type="text" id="inpavatar" value="">
-        <p>Choose character:</p>
-        <div class="choosecharacter">
-        <button id="btnleft" class="btncharacter"><i class="fas fa-arrow-left"></i></button>
-        <div id="figBig">
-        <img id="character" src="img/character1.png" alt="random image">
-        </div>
-        <button id="btnright" class="btncharacter"><i class="fas fa-arrow-right"></i></button>
-        </div>
-        <div class="thumbs">
-            <div data-photo="img/character1.png" class="current"><img src="img/character1.png" alt="Character 1"></div>
-            <div data-photo="img/character2.png"><img src="img/character2.png" alt="Character 2"></div>
-        </div>
-        <p id="lblhelp">Please choose a character !</p>
-        <button class="btnlogin" id="btnlogin">Ready</button>
+            <label id="username">username(optioneel): </label>
+            <input type="text" id="inpusername" value="">
+            <label id="avatar">avatar(optioneel):</label>
+            <input type="text" id="inpavatar" value="">
+            <button class="btngenerate">Generate Random</button>
+            <p>Choose character:</p>
+            <div class="choosecharacter">
+                <button id="btnleft" class="btncharacter"><i class="fas fa-arrow-left"></i></button>
+                <div id="figBig">
+                    <img id="character" src="img/character1.png" alt="random image">
+                </div>
+                <button id="btnright" class="btncharacter"><i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="thumbs">
+                <div data-photo="img/character1.png" class="current"><img src="img/character1.png" alt="Character 1">
+                </div>
+                <div data-photo="img/character2.png"><img src="img/character2.png" alt="Character 2"></div>
+            </div>
+            <p id="lblhelp">Please choose a character !</p>
+            <button class="btnlogin" id="btnlogin">Ready</button>
         </div>
         <canvas class="canvas1"></canvas>
         <button id="btnplay" class="btnstart">Play Game</button>
@@ -62,7 +74,9 @@
             <input id="sldsize" type="range" min="0" max="100" value="50" class="slider">
             <p id="lblpercentage">50%</p>
         </div>
+
     </div>
+
     <script src="js/scripts.js"></script>
 </body>
 
