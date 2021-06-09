@@ -1,37 +1,62 @@
-body {
-    background: linear-gradient(#e600ee, #515cda);
+body,html {
+    background: linear-gradient(#960000, #000000);
+    max-height: 100%;
 }
-html{
-    height: 100%;
+
+/*Font family instellen*/
+@font-face {
+    font-family: deathnote;
+    src: url('../fonts/RyukExtra\ copy.ttf');
 }
+
+@font-face {
+    font-family: deatNoteTitle;
+    src: url('../fonts/death_font_ver1_0.ttf');
+}
+
 .about h3 {
     color: black;
+    font-family: deatNoteTitle;
+}
+
+h1,h3 {
+    font-family: deatNoteTitle;
+}
+
+h3{
+    margin-bottom: 0px;
 }
 
 .about {
     margin: 0;
     padding: 0;
     width: 20%;
-    background: linear-gradient(#515cda, #e600ee);
     float: left;
     border-radius: 20%;
-    overflow: auto;
-    border: 2px solid black;
     color: white;
+    font-size: 2rem;
+    font-family: deathNote;
 }
 
-.highscore{
+.about p{
+    margin-bottom: 13rem;
+}
+
+#avatarimg {
+    margin-top: 12rem;
+}
+
+.highscore {
     text-align: center;
-    width: 25%;
+    width: 400px;
     color: white;
-    background: linear-gradient(#515cda, #e600ee);
-    border: 2px solid black;
     border-radius: 20%;
     overflow: auto;
-    font-family: bungee, arial, helvetica;
+    font-family: deathNote;
+    font-size: 2rem;
 }
 
-.highscore h3{
+.highscore h3 {
     color: black;
 }
 
@@ -42,67 +67,75 @@ html{
     text-decoration: none;
 }
 
-.wrap h3{
+.wrap h3 {
     color: black;
     margin-bottom: 0;
 }
 
-.wrap p{
+.wrap p {
     margin-bottom: 0px;
     margin-top: 0px;
 }
-.keyboardshoot{
+
+.keyboardshoot {
     margin-bottom: 0.3rem;
 }
 
-.wrap{
+.wrap {
     width: 20%;
-    background: linear-gradient(#515cda, #e600ee);
+
     border-radius: 20%;
-    overflow: auto;
-    border: 2px solid black;
     color: white;
     float: right;
 }
-.keyboardarrows{
+
+.keyboardarrows {
     width: 50%;
 }
 
 /*Login*/
 .loginstart {
-    background: linear-gradient(#515cda, #e600ee);
-    border: 3px solid black;
+    border: 3px solid rgb(255, 255, 255);
     width: 30rem;
     margin: 0 auto;
-    border-radius: 10px;
+    border-radius: 5rem;
     padding: 30px;
     padding-top: 20px;
-    margin-top: 3rem;
-    margin-bottom: 3.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     color: white;
 }
 
-.loginstart input{
+.loginstart input {
     display: block;
     flex-flow: row nowrap;
     margin: 0 auto;
 }
-#inpusername, #inpavatar{
+
+#inpusername,
+#inpavatar {
     border: 2px solid black;
 }
 
-#inpavatar{
+#inpavatar {
     margin-bottom: 10px;
 }
 
-#character, #btnleft, #btnright{
+#avatarimg{
+    width:121px;
+    height:121px
+}
+
+#character,
+#btnleft,
+#btnright {
     margin-bottom: 1rem;
 }
 
-.btngenerate{
+.btngenerate {
     padding: 0px 20px;
     color: white;
-    background-color: #515cda;
+    background-color: #960000;
     font-family: Bungee;
     border: 2px solid black;
     border-radius: 6%;
@@ -110,16 +143,13 @@ html{
     margin: 0 auto;
 }
 
-.btngenerate:hover{
-    background-color: #e600ee;
+.btngenerate:hover {
+    background-color: #727272;
     transition: 0.3s;
 }
 
-.wrappanel{
-    
-}
 
-.login{
+.login {
     width: 0px;
     height: 0px;
     margin-top: 0px;
@@ -127,37 +157,41 @@ html{
     visibility: hidden;
 }
 
-#lblhelp{
+#lblhelp {
     margin-top: 0px;
-    color: #000000;
-    font-size: 13px
+    color: #ffffff;
+    font-size: 22px
 }
 
-#character1, #character2{
+#character1,
+#character2 {
     display: inline-block;
 }
 
-.loginstart p, .login p{
+.loginstart p,
+.login p {
     margin-bottom: 0px;
 }
 
-img{
+img {
     display: block;
     margin: 0 auto;
 }
 
-.choosecharacter{
+.choosecharacter {
     display: flex;
     flex: space-between;
     width: 20%;
     margin: 0 auto;
 }
 
-.btnlogin{
+.btnlogin {
     padding: 0px 20px;
     color: white;
-    background-color: #515cda;
-    font-family: Bungee;
+    background-color: #960000;
+    font-size: 2rem;
+    font-family: deathNote;
+    color: white;
     border: 2px solid black;
     border-radius: 6%;
     display: block;
@@ -167,11 +201,12 @@ img{
 /*Wrapper*/
 .wrapper {
     text-align: center;
-    font-family: Bungee;
+    font-family: deathNote;
+    font-size: 2rem;
 }
 
 .wrapper h1 {
-    font-size: 30px;
+    font-size: 4rem;
     margin-top: 0px;
     margin-bottom: 10px;
 }
@@ -189,12 +224,12 @@ img{
 
 .gamestart {
     width: 830px;
-    height: 625px;
+    height: 560px;
     border: 2px black solid;
     justify-content: center;
     border-radius: 5%;
     background-image: url(../img/Tileset.png);
-    margin-bottom: 13px;
+    margin-bottom: 6rempx;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -207,16 +242,17 @@ img{
 .options {
     display: flex;
     justify-content: space-between;
+  
 }
 
 .options button {
-    
     margin-right: 5px;
     margin-top: 5px;
     color: black;
-    font-family: Bungee;
+    font-family: deathNote;
+    font-size: 2rem;
     border: 2px solid black;
-    
+
 }
 
 .current {
@@ -232,31 +268,30 @@ img{
     padding-bottom: 12px;
     font-size: 20px;
     margin: 0 auto;
-
-    background-color: #6e6e6e;
     color: white;
-    font-family: Bungee;
-    border: 2px solid black;
+    font-family: deathNote;
+    font-size: 2rem;
+    border: 2px solid rgb(255, 255, 255);
     border-radius: 6%;
 }
 
-#character{
+#character {
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.thumbs{
-  display: none;
+.thumbs {
+    display: none;
 }
 
-.btncharacter{
-    background-color: #515cda;
+.btncharacter {
+    background-color: #960000;
     border: 2px solid black;
-    border-radius:10%;
+    border-radius: 10%;
 }
 
-.btncharacter:hover{
-    background-color: #e600ee;
+.btncharacter:hover {
+    background-color: #727272;
     transition: 0.3s;
 }
 
@@ -266,23 +301,26 @@ img{
     padding-left: 40px;
     padding-right: 40px;
     padding-bottom: 15px;
-    font-size: 20px;
+
+    font-size: 2rem;
     margin: 0 auto;
-    background-color: #515cda;
+    background-color: #960000;
     color: white;
-    font-family: Bungee;
+    font-family: deathNote;
     border: 2px solid black;
     border-radius: 6%;
 
 }
 
-.btnplay:hover, .btnloginactivated:hover{
+.btnplay:hover,
+.btnloginactivated:hover {
     transition: 0.3s;
-    background-color: #e600ee;
+    background-color: #727272;
 }
 
 
-.btnstart:hover, .btnlogin:hover {
+.btnstart:hover,
+.btnlogin:hover {
     transition: 0.3s;
     background-color: #000000;
 }
@@ -291,7 +329,7 @@ img{
 .options button:hover {
     color: white;
     transition: 0.3s;
-    background-color: #515cda;
+    background-color: #960000;
 }
 
 /*Sound*/
@@ -300,30 +338,40 @@ img{
     width: 30%;
 }
 
-.slidecontainer {
-    display: flex;
-    justify-content: center;
-
-}
-
-.gamestart, .gameover{
+.gamestart,
+.gameover {
     margin: 0 auto;
     justify-content: center;
 }
 
-.slider{
-    background-color: #515cda;
+.slider {
+    background-color: #960000;
     border: 2px solid black;
     border-radius: 6%;
 }
 
 /*Timer*/
 #countdown {
-    font-family: bungee;
-    font-size: 18px;
+    font-family: deathNote;
+    font-size: 2rem;
+    margin-bottom: 0px;
+    margin-right: 10px;
+    margin-top: 2rem;
+    text-align: end;
+}
+
+.gamestatus{
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+    
+}
+
+.slidecontainer{
+    flex-grow: 4;
+    height: 100%;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    margin-bottom: 0px;
-    margin-top: 2px;
-  
+    color: white;
 }

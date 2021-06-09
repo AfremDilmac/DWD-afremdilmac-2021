@@ -28,6 +28,8 @@ const btnRight = document.querySelector('#btnright');
 const currentCharacter = document.querySelector('#character');
 const btnGenerateRandom = document.querySelector('.btngenerate');
 const avatarImg = document.querySelector('#avatarimg');
+const status = document.querySelector('.gamecontainer');
+const playerLife = document.querySelector('#playerhealth');
 
 window.addEventListener("load", function (event) {
     btnPlay.disabled = true;
@@ -38,60 +40,61 @@ window.addEventListener("load", function (event) {
 // fetch settings
 let url = 'https://random-user.p.rapidapi.com/getuser';
 let options = {
-"headers": {
-    "x-rapidapi-key": "994b50b238msh6dfad1c74f6c0b7p15229cjsn2d0a9730bd67",
-    "x-rapidapi-host": "random-user.p.rapidapi.com"
-}
+    "headers": {
+        "x-rapidapi-key": "994b50b238msh6dfad1c74f6c0b7p15229cjsn2d0a9730bd67",
+        "x-rapidapi-host": "random-user.p.rapidapi.com"
+    }
 };
 // fetch url
 fetch(url, options)
-.then(resp => { return resp.json(); })
-.then(data => verwerkData(data))
-.catch(err => verwerkFout(err));
+    .then(resp => {
+        return resp.json();
+    })
+    .then(data => verwerkData(data))
+    .catch(err => verwerkFout(err));
 // verwerk fouten
 function verwerkFout(err) {
-console.log('request mislukt: ', err);
+    console.log('request mislukt: ', err);
 }
 // verwerk data
 function verwerkData(data) {
-    console.log(data.results[0])
-    btnGenerateRandom.addEventListener('click', function (){
+    btnGenerateRandom.addEventListener('click', function () {
         inpUsername.value = data.results[0].name.first;
         inpAvatar.value = data.results[0].picture.medium;
         avatarImg.src = inpAvatar.value;
-    });    
+    });
 }
 /*Choose character*/
 let currentImg = 0;
 
 thumbs.forEach(thn => {
-   thn.addEventListener('click', function () {
-      document.querySelector('.current').classList.remove('current');
-      figBig.querySelector('img').src = thn.getAttribute('data-photo');
-   });
+    thn.addEventListener('click', function () {
+        document.querySelector('.current').classList.remove('current');
+        figBig.querySelector('img').src = thn.getAttribute('data-photo');
+    });
 });
 
-btnLeft.addEventListener('click', function(e){
+btnLeft.addEventListener('click', function (e) {
     currentImg -= 1;
-    if (currentImg == -1){
+    if (currentImg == -1) {
         currentImg = 1;
-     }
-     afbeeldingen(currentImg);
+    }
+    afbeeldingen(currentImg);
 });
 
-btnRight.addEventListener('click', function (e){
+btnRight.addEventListener('click', function (e) {
     currentImg -= 1;
-    if (currentImg == -1){
+    if (currentImg == -1) {
         currentImg = 1;
-     }
-     afbeeldingen(currentImg);
+    }
+    afbeeldingen(currentImg);
 });
 
 function afbeeldingen(currImg) {
-   figBig.querySelector('img').src = thumbs[currImg].getAttribute('data-photo');
+    figBig.querySelector('img').src = thumbs[currImg].getAttribute('data-photo');
 }
 
-/*Localstorage*/ 
+/*Localstorage
 const username = {
     load: document.getElementById("btnlogin"),
     title: document.getElementById("name"),
@@ -105,7 +108,7 @@ function saveToLocalStorage(key, value) {
     if (condition) {
         
     }
-    */
+    
     localStorage.setItem(key, value);
 }
 
@@ -116,7 +119,7 @@ function loadFromLocalStorage(key) {
     }
     return `Nothing found in ${key}`;
 }
-
+/*
 username.saveName.addEventListener("click", function(e) {
     const inputText = username.input.value;
     if (checkInput()) {
@@ -127,7 +130,7 @@ username.saveName.addEventListener("click", function(e) {
 username.load.addEventListener('click', function (e){
     username.title.innerHTML = loadFromLocalStorage("savedName");
 });
-
+*/
 
 btnReady.addEventListener('click', function (e) {
     btnPlay.disabled = false;
@@ -139,8 +142,7 @@ btnReady.addEventListener('click', function (e) {
 const playerSprite = new Image();
 if (currentImg == 0) {
     playerSprite.src = "img/sprite.png";
-}
-else{
+} else {
     playerSprite.src = "img/sprite2.png";
 }
 
@@ -154,6 +156,22 @@ bulletSprite.src = "img/bullet.png";
 //Start game
 btnPlay.addEventListener('click', function (e) {
     {
+        canvas.classList.remove('gameover');
+        btnPlay.innerHTML = 'Play game';
+        //Sound
+        let sndStart = new Audio();
+        sndStart.volume = 0.2;
+        sndStart.src = "snd/play.mp3";
+        sndStart.play();
+
+        let sndOptions = new Audio();
+        sndOptions.volume = 0.1;
+        sndOptions.src = "snd/options.mp3"
+
+        let sndDeath = new Audio();
+        sndDeath.volume = 0.2;
+        sndDeath.src = "snd/dead.mp3";
+
         //Canvas
         canvas.width = 800;
         canvas.height = 500;
@@ -210,8 +228,8 @@ btnPlay.addEventListener('click', function (e) {
             speed: 0.65,
             moving: false,
         }
-        
-            const bullet = {
+
+        const bullet = {
             x: 0,
             y: 0,
             width: 32,
@@ -221,7 +239,7 @@ btnPlay.addEventListener('click', function (e) {
             speed: 1,
             moving: false,
         };
-        
+
         function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
             ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
         }
@@ -262,25 +280,21 @@ btnPlay.addEventListener('click', function (e) {
             if (keys[38] && player.y > 0) {
                 player.y -= player.speed;
                 player.frameY = 3;
-                console.log(keys[38]);
             }
 
             if (keys[37] && player.x > 20) {
                 player.x -= player.speed;
                 player.frameY = 1;
-                console.log(keys[37]);
             }
 
             if (keys[40] && player.y < canvas.height - 120) {
                 player.y += player.speed;
                 player.frameY = 0;
-                console.log(keys[40]);
             }
 
             if (keys[39] && player.x < canvas.width - 52) {
                 player.x += player.speed;
                 player.frameY = 2;
-                console.log(keys[39]);
             }
         }
         //Hier bereken ik het afstand tussen onze enemy en speler en laat ik onze monster naar ons speler lopen. 
@@ -303,60 +317,79 @@ btnPlay.addEventListener('click', function (e) {
                 enemy.x += enemy.speed;
             }
         }
-        
-            function playerShoot(){
-                bullet.y = player.y;
-                bullet.x = player.x;
-                if (keys[89] && bullet.y > 0) {
-                    if (player.frameY == 3) {
-                        bullet.frameY = 3;
-                        bullet.y -= bullet.speed;
-                        drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                    }
-                }
-                if (keys[89] && bullet.x > 20) {
-                    if (player.frameY == 1) {
-                        bullet.frameY = 1;
-                        bullet.y -= bullet.speed;
-                        drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                    }
-                }
-                if (keys[89] && player.y < canvas.height - 120) {
-                    if (player.frameY == 0) {
-                        bullet.frameY = 0;
-                        bullet.y += bullet.speed;
-                        drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                    }
-                }
-                if (keys[89] && player.y < canvas.width - 52) {
-                    if (player.frameY == 2) {
-                        bullet.frameY = 2;
-                        bullet.y += bullet.speed;
-                        drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                    }
+
+        function playerShoot() {
+            bullet.y = player.y;
+            bullet.x = player.x;
+            if (keys[89] && bullet.y > 0) {
+                if (player.frameY == 3) {
+                    bullet.frameY = 3;
+                    bullet.y -= bullet.speed;
+                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
                 }
             }
-        
+            if (keys[89] && bullet.x > 20) {
+                if (player.frameY == 1) {
+                    bullet.frameY = 1;
+                    bullet.y -= bullet.speed;
+                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
+                }
+            }
+            if (keys[89] && player.y < canvas.height - 120) {
+                if (player.frameY == 0) {
+                    bullet.frameY = 0;
+                    bullet.y += bullet.speed;
+                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
+                }
+            }
+            if (keys[89] && player.y < canvas.width - 52) {
+                if (player.frameY == 2) {
+                    bullet.frameY = 2;
+                    bullet.y += bullet.speed;
+                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
+                }
+            }
+        }
+        let test = 200
+        let health = 3
+
         function gameOver() {
+
             if (player.x < enemy.x + player.width &&
                 player.x + player.width > enemy.x &&
                 player.y < enemy.y + enemy.height &&
                 player.y + player.height > enemy.y) {
-                canvas.classList.add('gameover');
-                clearInterval(time);
-                sndStart.muted = true;
+                test--;
+                if (test == 0) {
+                    health--;
+                }
+                if (test == -200) {
+                    health--;
+                }
+                if (test == -400) {
+                    health--;
+                }
+                if (health == 3) {
+                    playerLife.src = "gui/full-life.png";
+                    playerLife.style.width = "334px";
+                    playerLife.style.height = "72px";
+                } else if (health == 2) {
+                    playerLife.src = "gui/mid-life.png";
+                    playerLife.style.width = "334px";
+                    playerLife.style.height = "72px";
+                } else if (health == 1) {
+                    playerLife.src = "gui/low-life.png";
+                    playerLife.style.width = "334px";
+                    playerLife.style.height = "72px";
+                }
+                if (health == 0) {
+                    canvas.classList.add('gameover');
+                    btnPlay.innerHTML = 'Restart game';
+                    sndStart.pause();
+                    sndDeath.play();
+                }
             }
         }
-        //Sound
-        let sndStart = new Audio();
-        sndStart.volume = 0.2;
-        sndStart.src = "snd/play.mp3";
-        sndStart.play();
-
-        let sndOptions = new Audio();
-        sndOptions.volume = 0.1;
-        sndOptions.src = "snd/options.mp3"
-
         sldSize.addEventListener('click', function () {
             txtSound.innerHTML = sldSize.value + '%';
             let sound = sldSize.value / 100;
@@ -375,11 +408,11 @@ btnPlay.addEventListener('click', function (e) {
     });
 
     btnMuteSound.addEventListener('click', function () {
-        sndStart.muted = true;
+        sndStart.pause();
     });
 
     btnUnmuteSound.addEventListener('click', function () {
-        sndStart.muted = false;
+        sndStart.play();
     });
 
     btnNormalScreen.addEventListener('click', function () {
