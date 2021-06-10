@@ -1,6 +1,7 @@
 body,html {
     background: linear-gradient(#960000, #000000);
     max-height: 100%;
+    overflow: hidden;
 }
 
 /*Font family instellen*/
@@ -39,7 +40,7 @@ h3{
 }
 
 .about p{
-    margin-bottom: 13rem;
+    margin-bottom: 17.7rem;
 }
 
 #avatarimg {
@@ -78,7 +79,7 @@ h3{
 }
 
 .keyboardshoot {
-    margin-bottom: 0.3rem;
+    margin-bottom: 8rem;
 }
 
 .wrap {
@@ -91,6 +92,11 @@ h3{
 
 .keyboardarrows {
     width: 50%;
+    
+}
+
+.disapear{
+    display: none;
 }
 
 /*Login*/
@@ -123,7 +129,8 @@ h3{
 
 #avatarimg{
     width:121px;
-    height:121px
+    height:121px;
+    margin-top: 16rem;
 }
 
 #character,
@@ -144,7 +151,7 @@ h3{
 }
 
 .btngenerate:hover {
-    background-color: #727272;
+    background-color: #000000;
     transition: 0.3s;
 }
 
@@ -233,10 +240,14 @@ img {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
-.gameover {
+.win {
     background-image: url(../img/gameover.png);
-    filter: grayscale(80%);
 }
+
+.lose {
+    background-image: url(../img/gameover2.png);
+}
+
 
 /*Options*/
 .options {
@@ -286,12 +297,13 @@ img {
 
 .btncharacter {
     background-color: #960000;
+    color: white;
     border: 2px solid black;
     border-radius: 10%;
 }
 
 .btncharacter:hover {
-    background-color: #727272;
+    background-color: #000000;
     transition: 0.3s;
 }
 
@@ -315,7 +327,7 @@ img {
 .btnplay:hover,
 .btnloginactivated:hover {
     transition: 0.3s;
-    background-color: #727272;
+    background-color: #000000;
 }
 
 
@@ -329,7 +341,7 @@ img {
 .options button:hover {
     color: white;
     transition: 0.3s;
-    background-color: #960000;
+    background-color: #000000;
 }
 
 /*Sound*/

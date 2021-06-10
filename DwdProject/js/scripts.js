@@ -6,7 +6,6 @@ const sldSize = document.querySelector('#sldsize');
 const btnFullScreen = document.querySelector('#btnfullscreen');
 const btnMuteSound = document.querySelector('#btnmute');
 const btnUnmuteSound = document.querySelector('#btnunmute');
-const btnNormalScreen = document.querySelector('#btnnormal');
 const btnDarkMode = document.querySelector('#btndark');
 const canvas = document.querySelector('.canvas1');
 const ctx = canvas.getContext('2d');
@@ -30,14 +29,45 @@ const btnGenerateRandom = document.querySelector('.btngenerate');
 const avatarImg = document.querySelector('#avatarimg');
 const status = document.querySelector('.gamecontainer');
 const playerLife = document.querySelector('#playerhealth');
+const monsterLife = document.querySelector('#monsterhealth');
 
 window.addEventListener("load", function (event) {
     btnPlay.disabled = true;
 });
 
-/*Generate random Username and Avatar*/
-//Button generate random values
-// fetch settings
+let sndOptions = new Audio();
+sndOptions.volume = 0.1;
+sndOptions.src = "snd/options.mp3"
+
+let sndDeath = new Audio();
+sndDeath.volume = 0.1;
+sndDeath.src = "snd/dead.mp3";
+
+let sndStart = new Audio();
+sndStart.volume = 0.1;
+sndStart.src = "snd/play.mp3";
+
+//Options + sound foreach button
+buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+        document.querySelector('.current').classList.remove('current');
+        btn.classList.add('current');
+        sndOptions.play();
+    });
+});
+
+btnMuteSound.addEventListener('click', function () {
+    sndStart.muted = true;
+});
+
+btnUnmuteSound.addEventListener('click', function () {
+    sndStart.muted = false;
+});
+
+/*API
+Generate random Username and Avatar
+Button generate random values
+ fetch settings*/
 let url = 'https://random-user.p.rapidapi.com/getuser';
 let options = {
     "headers": {
@@ -59,12 +89,12 @@ function verwerkFout(err) {
 // verwerk data
 function verwerkData(data) {
     btnGenerateRandom.addEventListener('click', function () {
-        inpUsername.value = data.results[0].name.first;
         inpAvatar.value = data.results[0].picture.medium;
         avatarImg.src = inpAvatar.value;
     });
 }
-/*Choose character*/
+
+/*Pick a player by changing image*/
 let currentImg = 0;
 
 thumbs.forEach(thn => {
@@ -94,43 +124,6 @@ function afbeeldingen(currImg) {
     figBig.querySelector('img').src = thumbs[currImg].getAttribute('data-photo');
 }
 
-/*Localstorage
-const username = {
-    load: document.getElementById("btnlogin"),
-    title: document.getElementById("name"),
-    input: document.getElementById("inpusername"),
-    saveName: document.getElementById("btnlogin"),
-    timer: document.getElementById("countdown"),
-}
-
-function saveToLocalStorage(key, value) {
-   /* let tim
-    if (condition) {
-        
-    }
-    
-    localStorage.setItem(key, value);
-}
-
-function loadFromLocalStorage(key) {
-    const loaded = localStorage.getItem(key);
-    if (loaded != null) {
-        return loaded;
-    }
-    return `Nothing found in ${key}`;
-}
-/*
-username.saveName.addEventListener("click", function(e) {
-    const inputText = username.input.value;
-    if (checkInput()) {
-        saveToLocalStorage("savedName", inputText);
-    }
-});
-
-username.load.addEventListener('click', function (e){
-    username.title.innerHTML = loadFromLocalStorage("savedName");
-});
-*/
 
 btnReady.addEventListener('click', function (e) {
     btnPlay.disabled = false;
@@ -138,39 +131,73 @@ btnReady.addEventListener('click', function (e) {
     btnPlay.classList.add('btnplay');
 });
 
-//Choose character
-const playerSprite = new Image();
-if (currentImg == 0) {
-    playerSprite.src = "img/sprite.png";
-} else {
-    playerSprite.src = "img/sprite2.png";
-}
-
+//Enemy image
 const enemySprite = new Image();
 enemySprite.src = "img/spriteryuk.png";
 
-//bullet
+//bullet image
 const bulletSprite = new Image();
 bulletSprite.src = "img/bullet.png";
 
 //Start game
 btnPlay.addEventListener('click', function (e) {
-    {
-        canvas.classList.remove('gameover');
-        btnPlay.innerHTML = 'Play game';
-        //Sound
-        let sndStart = new Audio();
-        sndStart.volume = 0.2;
-        sndStart.src = "snd/play.mp3";
+
+    //Choose character
+const playerSprite = new Image();
+if (currentImg == 0) {
+    playerSprite.src = "img/sprite.png";
+    console.log(currentImg);
+} else {
+    playerSprite.src = "img/sprite2.png";
+    console.log(currentImg);
+}
+
+    monsterLife.src = "gui/full-life.png";
+    playerLife.src = "gui/full-life.png";
+    {        //character parameters
+        const player = {
+            x: 400,
+            y: 220,
+            width: 32,
+            height: 48,
+            frameX: 0,
+            frameY: 0,
+            speed: 1,
+            moving: false,
+            alive : false,
+        };
+
+        const enemy = {
+            x: 110,
+            y: 300,
+            width: 48,
+            height: 64,
+            frameX: 0,
+            frameY: 0,
+            speed: 0.65,
+            moving: false,
+            alive : false,
+        }
+
+        const bullet = {
+            x: 0,
+            y: 0,
+            width: 32,
+            height: 48,
+            frameX: 0,
+            frameY: 0,
+            speed: 2,
+            moving: false,
+        };
+
+        player.alive = true;
+        enemy.alive = true;
+        sndDeath.pause();
+        sndDeath.currentTime = 0;
         sndStart.play();
-
-        let sndOptions = new Audio();
-        sndOptions.volume = 0.1;
-        sndOptions.src = "snd/options.mp3"
-
-        let sndDeath = new Audio();
-        sndDeath.volume = 0.2;
-        sndDeath.src = "snd/dead.mp3";
+        canvas.classList.remove('win');
+        canvas.classList.remove('lose');
+        btnPlay.innerHTML = 'Play game';
 
         //Canvas
         canvas.width = 800;
@@ -181,7 +208,9 @@ btnPlay.addEventListener('click', function (e) {
         login.classList.remove('loginstart');
         inpUsername.innerHTML = '';
         inpAvatar.innerHTML = '';
-
+        btnFullScreen.addEventListener('click', function () {
+            canvas.requestFullscreen();
+        });
         //Timer
         let time;
         let i = 300;
@@ -194,8 +223,9 @@ btnPlay.addEventListener('click', function (e) {
             if (countdown.innerHTML == '0 : 0') {
                 btnPlay.innerHTML = "restart game";
                 canvas.classList.add('gameover');
-                sndStart.muted = true;
                 clearInterval(time);
+                sndStart.pause();
+                sndDeath.play();
             } else {
                 canvas.classList.remove('gameover');
                 btnPlay.innerHTML = "play game";
@@ -206,39 +236,7 @@ btnPlay.addEventListener('click', function (e) {
         //Character movement geleerd op bron: https://www.youtube.com/watch?v=EYf_JwzwTlQ&t=923s
         const keys = [];
 
-        //character parameters
-        const player = {
-            x: 400,
-            y: 220,
-            width: 32,
-            height: 48,
-            frameX: 0,
-            frameY: 0,
-            speed: 1,
-            moving: false,
-        };
 
-        const enemy = {
-            x: 110,
-            y: 300,
-            width: 48,
-            height: 64,
-            frameX: 0,
-            frameY: 0,
-            speed: 0.65,
-            moving: false,
-        }
-
-        const bullet = {
-            x: 0,
-            y: 0,
-            width: 32,
-            height: 48,
-            frameX: 0,
-            frameY: 0,
-            speed: 1,
-            moving: false,
-        };
 
         function drawSprite(img, sX, sY, sW, sH, dX, dY, dW, dH) {
             ctx.drawImage(img, sX, sY, sW, sH, dX, dY, dW, dH);
@@ -247,8 +245,16 @@ btnPlay.addEventListener('click', function (e) {
         //Character animation
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
-            drawSprite(enemySprite, enemy.width * enemy.frameX, enemy.height * enemy.frameY, enemy.width, enemy.height, enemy.x, enemy.y, enemy.width, enemy.height);
+            if (bullet.moving) {
+                drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
+                moveBullet();
+            }
+            if (player.alive) {
+                drawSprite(playerSprite, player.width * player.frameX, player.height * player.frameY, player.width, player.height, player.x, player.y, player.width, player.height);
+            }
+            if (enemy.alive) {
+                drawSprite(enemySprite, enemy.width * enemy.frameX, enemy.height * enemy.frameY, enemy.width, enemy.height, enemy.x, enemy.y, enemy.width, enemy.height);
+            }
             movePlayer();
             moveEnnemy();
             gameOver();
@@ -263,6 +269,7 @@ btnPlay.addEventListener('click', function (e) {
             if (player.frameX < 3 && player.moving) {
                 player.frameX++;
             } else player.frameX = 0;
+
         }
 
         window.addEventListener("keydown", function (e) {
@@ -287,7 +294,7 @@ btnPlay.addEventListener('click', function (e) {
                 player.frameY = 1;
             }
 
-            if (keys[40] && player.y < canvas.height - 120) {
+            if (keys[40] && player.y < canvas.height - 80) {
                 player.y += player.speed;
                 player.frameY = 0;
             }
@@ -318,73 +325,115 @@ btnPlay.addEventListener('click', function (e) {
             }
         }
 
-        function playerShoot() {
-            bullet.y = player.y;
-            bullet.x = player.x;
-            if (keys[89] && bullet.y > 0) {
-                if (player.frameY == 3) {
-                    bullet.frameY = 3;
-                    bullet.y -= bullet.speed;
-                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                }
+        function moveBullet() {
+            if (bullet.frameY == 3) {
+                bullet.y -= bullet.speed;
             }
-            if (keys[89] && bullet.x > 20) {
-                if (player.frameY == 1) {
-                    bullet.frameY = 1;
-                    bullet.y -= bullet.speed;
-                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                }
+            if (bullet.frameY == 1) {
+                bullet.x -= bullet.speed;
             }
-            if (keys[89] && player.y < canvas.height - 120) {
-                if (player.frameY == 0) {
-                    bullet.frameY = 0;
-                    bullet.y += bullet.speed;
-                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                }
+            if (bullet.frameY == 0) {
+                bullet.y += bullet.speed;
             }
-            if (keys[89] && player.y < canvas.width - 52) {
-                if (player.frameY == 2) {
-                    bullet.frameY = 2;
-                    bullet.y += bullet.speed;
-                    drawSprite(bulletSprite, bullet.width * bullet.frameX, bullet.height * bullet.frameY, bullet.width, bullet.height, bullet.x, bullet.y, bullet.width, bullet.height);
-                }
+            if (bullet.frameY == 2) {
+                bullet.x += bullet.speed;
+            }
+            if (bullet.x > 830 || bullet.y > 563 || bullet.x < 0 || bullet.y < 0) {
+                bullet.moving = false;
             }
         }
-        let test = 200
-        let health = 3
 
+        function playerShoot() {
+            if (keys[89] && bullet.moving == false) {
+                bullet.moving = true;
+                bullet.frameY = player.frameY;
+                bullet.y = player.y;
+                bullet.x = player.x;
+            }
+        }
+
+        let PlayerHealthTimer = 200
+        let Playerhealth = 3
+        let MonsterHealthTimer = 200
+        let Monsterhealth = 3
+        /*
+        Collision detection geleerd op:
+        https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
+        */
         function gameOver() {
 
             if (player.x < enemy.x + player.width &&
                 player.x + player.width > enemy.x &&
                 player.y < enemy.y + enemy.height &&
                 player.y + player.height > enemy.y) {
-                test--;
-                if (test == 0) {
-                    health--;
+                PlayerHealthTimer--;
+                if (PlayerHealthTimer == 0) {
+                    Playerhealth--;
                 }
-                if (test == -200) {
-                    health--;
+                if (PlayerHealthTimer == -200) {
+                    Playerhealth--;
                 }
-                if (test == -400) {
-                    health--;
+                if (PlayerHealthTimer == -400) {
+                    Playerhealth--;
                 }
-                if (health == 3) {
+                if (PlayerHealthTimer == -600) {
+                    Playerhealth--;
+                }
+                if (Playerhealth == 3) {
                     playerLife.src = "gui/full-life.png";
                     playerLife.style.width = "334px";
                     playerLife.style.height = "72px";
-                } else if (health == 2) {
+                } else if (Playerhealth == 2) {
                     playerLife.src = "gui/mid-life.png";
                     playerLife.style.width = "334px";
                     playerLife.style.height = "72px";
-                } else if (health == 1) {
+                } else if (Playerhealth == 1) {
                     playerLife.src = "gui/low-life.png";
                     playerLife.style.width = "334px";
                     playerLife.style.height = "72px";
                 }
-                if (health == 0) {
-                    canvas.classList.add('gameover');
-                    btnPlay.innerHTML = 'Restart game';
+                if (Playerhealth == 0) {
+                    btnPlay.innerHTML = "restart game";
+                    playerSprite.style.display = "none";
+                    enemySprite.style.display = "none";
+                    canvas.classList.add('lose');
+                    clearInterval(time);
+                    player.alive = false;
+                    monster.alive = false;
+                    sndStart.pause();
+                    sndDeath.play();
+                }
+            }
+            if (bullet.x < enemy.x + bullet.width &&
+                bullet.x + bullet.width > enemy.x &&
+                bullet.y < enemy.y + enemy.height &&
+                bullet.y + bullet.height > enemy.y) {
+                bullet.moving = false;
+                MonsterHealthTimer--;
+                if (MonsterHealthTimer == 0 || MonsterHealthTimer == -200 || MonsterHealthTimer == -400 ) {
+                    Monsterhealth--;
+                    console.log(MonsterHealthTimer);
+                    console.log(Monsterhealth);
+                }
+                if (Monsterhealth == 3) {
+                    monsterLife.src = "gui/full-life.png";
+                    monsterLife.style.width = "334px";
+                    monsterLife.style.height = "72px";
+                } else if (Monsterhealth == 2) {
+                    monsterLife.src = "gui/mid-life.png";
+                    monsterLife.style.width = "334px";
+                    monsterLife.style.height = "72px";
+                } else if (Monsterhealth == 1) {
+                    monsterLife.src = "gui/low-life.png";
+                    monsterLife.style.width = "334px";
+                    monsterLife.style.height = "72px";
+                }
+                if (Monsterhealth == 0) {
+                    btnPlay.innerHTML = "restart game";
+                    canvas.classList.add('win');
+                    clearInterval(time);
+                    player.alive = false;
+                    monster.alive = false;
                     sndStart.pause();
                     sndDeath.play();
                 }
@@ -396,30 +445,4 @@ btnPlay.addEventListener('click', function (e) {
             sndStart.volume = sound;
         });
     }
-
-    //Options + sound foreach button
-    buttons.forEach(btn => {
-        btn.addEventListener('click', function () {
-            document.querySelector('.current').classList.remove('current');
-            btn.classList.add('current');
-            btn.disabled = true;
-            sndOptions.play();
-        });
-    });
-
-    btnMuteSound.addEventListener('click', function () {
-        sndStart.pause();
-    });
-
-    btnUnmuteSound.addEventListener('click', function () {
-        sndStart.play();
-    });
-
-    btnNormalScreen.addEventListener('click', function () {
-        document.exitFullscreen();
-    });
-
-    btnFullScreen.addEventListener('click', function () {
-        document.getElementById("canvas1").requestFullscreen()
-    });
 });
