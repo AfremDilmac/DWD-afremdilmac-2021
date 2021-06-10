@@ -18,7 +18,7 @@ const rdbCharacter2 = document.querySelector('#character2');
 const inpChooseCharacter1 = document.querySelector('#character1');
 const inpChooseCharacter2 = document.querySelector('#character2');
 const playerName = document.querySelector('#name');
-const inpUsername = document.querySelector('#inpusername');
+const inpUsername = document.querySelector('#inpUsername');
 const btnLocal = document.querySelector('#btnlogin');
 const figBig = document.querySelector('#figBig');
 const thumbs = document.querySelectorAll('.thumbs div');
@@ -34,6 +34,16 @@ const monsterLife = document.querySelector('#monsterhealth');
 window.addEventListener("load", function (event) {
     btnPlay.disabled = true;
 });
+
+//Geleerd op basis van: https://rogiervdl.github.io/JS-course/06_games.html#/localstorage
+let inputUsername = document.getElementById("inpusername");
+inputUsername.addEventListener("change", function(){
+    localStorage.setItem("username", this.value);
+});
+
+if (localStorage.getItem("username")) {
+    inputUsername.value = localStorage.getItem("username");
+}
 
 let sndOptions = new Audio();
 sndOptions.volume = 0.1;
@@ -143,18 +153,17 @@ bulletSprite.src = "img/bullet.png";
 btnPlay.addEventListener('click', function (e) {
 
     //Choose character
-const playerSprite = new Image();
-if (currentImg == 0) {
-    playerSprite.src = "img/sprite.png";
-    console.log(currentImg);
-} else {
-    playerSprite.src = "img/sprite2.png";
-    console.log(currentImg);
-}
+    const playerSprite = new Image();
+    if (currentImg == 0) {
+        playerSprite.src = "img/sprite.png";
+        console.log(currentImg);
+    } else {
+        playerSprite.src = "img/sprite2.png";
+        console.log(currentImg);
+    }
 
     monsterLife.src = "gui/full-life.png";
-    playerLife.src = "gui/full-life.png";
-    {        //character parameters
+    playerLife.src = "gui/full-life.png"; { //character parameters
         const player = {
             x: 400,
             y: 220,
@@ -164,7 +173,7 @@ if (currentImg == 0) {
             frameY: 0,
             speed: 1,
             moving: false,
-            alive : false,
+            alive: false,
         };
 
         const enemy = {
@@ -176,7 +185,7 @@ if (currentImg == 0) {
             frameY: 0,
             speed: 0.65,
             moving: false,
-            alive : false,
+            alive: false,
         }
 
         const bullet = {
@@ -410,7 +419,7 @@ if (currentImg == 0) {
                 bullet.y + bullet.height > enemy.y) {
                 bullet.moving = false;
                 MonsterHealthTimer--;
-                if (MonsterHealthTimer == 0 || MonsterHealthTimer == -200 || MonsterHealthTimer == -400 ) {
+                if (MonsterHealthTimer == 0 || MonsterHealthTimer == -200 || MonsterHealthTimer == -400) {
                     Monsterhealth--;
                     console.log(MonsterHealthTimer);
                     console.log(Monsterhealth);
