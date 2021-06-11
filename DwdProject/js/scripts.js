@@ -353,7 +353,7 @@ btnPlay.addEventListener('click', function (e) {
             if (bullet.frameY == 2) {
                 bullet.x += bullet.speed;
             }
-            if (bullet.x > 830 || bullet.y > 563 || bullet.x < 0 || bullet.y < 0) {
+            if (bullet.x > 830 || bullet.y > 563 || bullet.x < 0 ||  bullet.y < 0) {
                 bullet.moving = false;
             }
         }

@@ -33,7 +33,8 @@ h3 {
 .about {
     margin: 0;
     padding: 0;
-    width: 20%;
+    max-width: 266px;
+    width: 100%;
     float: left;
     border-radius: 20%;
     color: white;
@@ -42,7 +43,7 @@ h3 {
 }
 
 .about p {
-    margin-bottom: 17rem;
+    margin-bottom: 10rem;
 }
 
 #avatarimg {
@@ -85,8 +86,8 @@ h3 {
 }
 
 .wrap {
-    width: 20%;
-
+    width: 100%;
+    max-width: 280px;
     border-radius: 20%;
     color: white;
     float: right;
@@ -94,7 +95,6 @@ h3 {
 
 .keyboardarrows {
     width: 50%;
-
 }
 
 .disapear {
@@ -232,13 +232,14 @@ img {
 }
 
 .gamestart {
-    width: 830px;
+    max-width: 830px;
+    width: 100%;
     height: 560px;
     border: 2px black solid;
     justify-content: center;
     border-radius: 5%;
     background-image: url(../img/Tileset.png);
-    margin-bottom: 6rempx;
+    margin-bottom: 6rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -388,6 +389,10 @@ img {
     display: flex;
     justify-content: center;
     color: white;
+}
+
+#playerhealth {
+    width: 280px;
 }
 
 @media screen and (max-width: 1650px) {
