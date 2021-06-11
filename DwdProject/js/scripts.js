@@ -35,6 +35,12 @@ window.addEventListener("load", function (event) {
     btnPlay.disabled = true;
 });
 
+window.addEventListener("keydown", function (e) {
+    if (e.key.toLocaleLowerCase() == 'arrowdown' || e.key.toLocaleLowerCase() == 'arrowup') {
+        e.preventDefault();
+    }
+});
+
 //Geleerd op basis van: https://rogiervdl.github.io/JS-course/06_games.html#/localstorage
 let inputUsername = document.getElementById("inpusername");
 inputUsername.addEventListener("change", function(){
@@ -215,8 +221,8 @@ btnPlay.addEventListener('click', function (e) {
         canvas.classList.remove('canvas1');
         login.classList.add('login');
         login.classList.remove('loginstart');
-        inpUsername.innerHTML = '';
-        inpAvatar.innerHTML = '';
+        inputUsername.innerHTML = '.';
+        inpAvatar.innerHTML = '.';
         btnFullScreen.addEventListener('click', function () {
             canvas.requestFullscreen();
         });
@@ -292,7 +298,7 @@ btnPlay.addEventListener('click', function (e) {
         });
 
         //character movement
-        function movePlayer() {
+        function movePlayer(e) {
             if (keys[38] && player.y > 0) {
                 player.y -= player.speed;
                 player.frameY = 3;

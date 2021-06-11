@@ -1,8 +1,9 @@
-body,html {
+body,
+html {
     background: linear-gradient(#960000, #000000);
     max-height: 100%;
-    overflow: hidden;
 }
+
 
 /*Font family instellen*/
 @font-face {
@@ -20,11 +21,12 @@ body,html {
     font-family: deatNoteTitle;
 }
 
-h1,h3 {
+h1,
+h3 {
     font-family: deatNoteTitle;
 }
 
-h3{
+h3 {
     margin-bottom: 0px;
 }
 
@@ -39,8 +41,8 @@ h3{
     font-family: deathNote;
 }
 
-.about p{
-    margin-bottom: 17.7rem;
+.about p {
+    margin-bottom: 17rem;
 }
 
 #avatarimg {
@@ -92,10 +94,10 @@ h3{
 
 .keyboardarrows {
     width: 50%;
-    
+
 }
 
-.disapear{
+.disapear {
     display: none;
 }
 
@@ -127,9 +129,9 @@ h3{
     margin-bottom: 10px;
 }
 
-#avatarimg{
-    width:121px;
-    height:121px;
+#avatarimg {
+    width: 121px;
+    height: 121px;
     margin-top: 16rem;
 }
 
@@ -253,7 +255,7 @@ img {
 .options {
     display: flex;
     justify-content: space-between;
-  
+
 }
 
 .options button {
@@ -372,14 +374,14 @@ img {
     text-align: end;
 }
 
-.gamestatus{
+.gamestatus {
     display: flex;
     justify-content: space-between;
     z-index: -1;
-    
+
 }
 
-.slidecontainer{
+.slidecontainer {
     flex-grow: 4;
     height: 100%;
     margin-top: 1rem;
@@ -387,3 +389,156 @@ img {
     justify-content: center;
     color: white;
 }
+
+@media screen and (max-width: 1650px) {
+    .about p {
+        margin-bottom: 12rem;
+    }
+
+    #avatarimg {
+        margin-top: 13rem;
+    }
+
+}
+
+@media screen and (max-width: 1410px) {
+    .gamestart {
+        width: 600px;
+        height: 360px;
+    }
+
+
+}
+
+@media screen and (max-width: 1200px) {
+    h1 {
+        font-size: 2.6rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.6rem;
+    }
+
+    #avatarimg {
+        margin-top: 13rem;
+    }
+
+    #monsterhealth {
+        width: 120%;
+    }
+
+    #playerhealth {
+        width: 120%;
+    }
+
+    .about p {
+        margin-bottom: 9rem;
+    }
+
+    #avatarimg {
+        margin-top: 10rem;
+    }
+
+    .loginstart {
+        width: 20rem;
+        font-size: 1rem;
+    }
+
+    .btnlogin {
+        font-size: 1.6rem;
+    }
+
+    #btnplay {
+        font-size: 1.6rem;
+    }
+
+    .options button {
+        font-size: 1.6rem;
+    }
+
+    #countdown {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .wrapper h1 {
+        font-size: 2.4rem;
+    }
+
+    h3 {
+        font-size: 1.6rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    p {
+        font-size: 1.2rem;
+    }
+
+    .about p {
+        margin-bottom: 8.3rem;
+    }
+
+    .options {
+        justify-content: center;
+    }
+
+    .highscore {
+        width: 0px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+    .options {
+        justify-content: center;
+    }
+
+    .highscore {
+        width: 0px;
+    }
+
+    .loginstart {
+        width: 13rem;
+        font-size: 1rem;
+    }
+    .loginstart button{
+        font-size: 0.8rem;
+    }
+
+
+}
+
+@media screen and (max-width: 620px) {
+
+.about p{
+    font-size: 19px;
+    margin-bottom: 3rem;
+}
+}
+@media screen and (max-width: 500px) {
+
+    .loginstart{
+        width: 30%;
+        height: 10%
+    }
+    .loginstart button, input{
+        width: 80%;
+        height: 50%;
+        font-size: 10px;
+    }
+    .keyboardshoot img{
+        margin-bottom: 20rem;
+    }
+    .options button {
+        display: block;
+        flex-flow: row nowrap;
+        text-align: center;
+        margin: 0.6rem;
+    }
+    }
