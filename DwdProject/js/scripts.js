@@ -396,15 +396,15 @@ btnPlay.addEventListener('click', function (e) {
                 }
                 if (Playerhealth == 3) {
                     playerLife.src = "gui/full-life.png";
-                    playerLife.style.width = "334px";
+                    playerLife.style.width = "280px";
                     playerLife.style.height = "72px";
                 } else if (Playerhealth == 2) {
                     playerLife.src = "gui/mid-life.png";
-                    playerLife.style.width = "334px";
+                    playerLife.style.width = "280px";
                     playerLife.style.height = "72px";
                 } else if (Playerhealth == 1) {
                     playerLife.src = "gui/low-life.png";
-                    playerLife.style.width = "334px";
+                    playerLife.style.width = "280px";
                     playerLife.style.height = "72px";
                 }
                 if (Playerhealth == 0) {
@@ -432,15 +432,15 @@ btnPlay.addEventListener('click', function (e) {
                 }
                 if (Monsterhealth == 3) {
                     monsterLife.src = "gui/full-life.png";
-                    monsterLife.style.width = "334px";
+                    monsterLife.style.width = "280px";
                     monsterLife.style.height = "72px";
                 } else if (Monsterhealth == 2) {
                     monsterLife.src = "gui/mid-life.png";
-                    monsterLife.style.width = "334px";
+                    monsterLife.style.width = "280px";
                     monsterLife.style.height = "72px";
                 } else if (Monsterhealth == 1) {
                     monsterLife.src = "gui/low-life.png";
-                    monsterLife.style.width = "334px";
+                    monsterLife.style.width = "280px";
                     monsterLife.style.height = "72px";
                 }
                 if (Monsterhealth == 0) {
